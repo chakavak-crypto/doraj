@@ -16,7 +16,6 @@ export default async function HomePage() {
     <Box
       sx={{
         display: 'flex',
-        border: '1px solid black',
         p: 2,
         minHeight: '85vh'
       }}

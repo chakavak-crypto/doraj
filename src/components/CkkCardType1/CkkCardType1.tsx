@@ -11,7 +11,7 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
 import Button from "@mui/material/Button";
 import DeleteIcon from '@mui/icons-material/Delete';
-import SendTicketImg from '../../assets/send-ticket.png';
+import SendTicketImg from '@/assets/send-ticket.png';
 
 export interface CkkCardType1Props{
     icon: string;

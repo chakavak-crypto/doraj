@@ -9,24 +9,31 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import CkkAccountPopover from "@/components/CkkAccountPopover";
 import CkkThemeOptionsPopper from "@/components/CkkThemeOptionsPopper";
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import {useMediaQuery} from "@mui/material";
+import Greeting from "@/components/Greeting";
+import {useTheme} from "@mui/material/styles";
+import PersonIcon from '@mui/icons-material/Person';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-function ResponsiveAppBar() {
+export interface AppBarProps{
+  onOpen?: (event: React.MouseEvent<HTMLElement>) => void
+}
+function ResponsiveAppBar(props: AppBarProps) {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+  const theme = useTheme();
+  const matchesMdUp = useMediaQuery(theme.breakpoints.up('md'));
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
+    //setAnchorElNav(event.currentTarget);
+    props.onOpen(event);
   };
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -41,7 +48,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="fixed" sx={{ zIndex: 2000 }} elevation={0}>
+    <AppBar position="fixed" sx={{ zIndex: 2000, bgcolor: 'inherit', color: 'text.primary' }} elevation={0}>
       <Container maxWidth={false}>
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -119,17 +126,32 @@ function ResponsiveAppBar() {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, ml: '110px' }}>
-            سلام حسین، خوش آمدید
+            <Greeting name={'حسین'} />
           </Box>
 
           <Box sx={{ flexGrow: 0, flexDirection: 'row', display: 'flex' }}>
-            <CkkAccountPopover />
-            <div>
+            {matchesMdUp && (
+              <Box sx={{mr: 5}}>
+                <CkkAccountPopover />
+              </Box>
+            )}
+            <Box>
               <IconButton>
                 <NotificationsIcon />
               </IconButton>
-            </div>
-            <CkkThemeOptionsPopper />
+            </Box>
+            {!matchesMdUp && (
+              <Box>
+                <IconButton>
+                  <PersonIcon />
+                </IconButton>
+              </Box>
+            )}
+            {matchesMdUp && (
+              <Box>
+                <CkkThemeOptionsPopper />
+              </Box>
+            )}
           </Box>
         </Toolbar>
       </Container>

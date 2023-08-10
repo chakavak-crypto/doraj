@@ -23,6 +23,8 @@ import { cookies } from 'next/headers'
 import {fallbackLng} from './i18n/settings'
 import {Card, CardContent, Grid, Stack} from "@mui/material";
 import AppBar from "@/features/AppBar";
+import CkkDrawerType1 from "@/components/CkkDrawerType1";
+import {useState} from "react";
 
 export const metadata = {
   title: 'Next.js App Router + Material UI v5',
@@ -54,55 +56,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang={lng} dir={dir(lng)}>
       <body>
         <ThemeRegistry>
-          <AppBar />
-          <Drawer
-            sx={{
-              width: DRAWER_WIDTH,
-              flexShrink: 0,
-              '& .MuiDrawer-paper': {
-                width: DRAWER_WIDTH,
-                boxSizing: 'border-box',
-                top: ['48px', '56px', '64px'],
-                bottom: ['48px', '56px', '64px'],
-                height: 'auto',
-                border: 0
-              },
-            }}
-            variant="permanent"
-            anchor="left"
-          >
-            <List>
-              {LINKS.map(({ text, href, icon: Icon }) => (
-                <ListItem key={href} disablePadding>
-                  <ListItemButton component={Link} href={href}>
-                    <ListItemIcon>
-                      <Icon />
-                    </ListItemIcon>
-                    <ListItemText primary={text} />
-                  </ListItemButton>
-                </ListItem>
-              ))}
-            </List>
-            <Divider sx={{ mt: 'auto' }} />
-            <List>
-              {PLACEHOLDER_LINKS.map(({ text, icon: Icon }) => (
-                <ListItem key={text} disablePadding>
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <Icon />
-                    </ListItemIcon>
-                    <ListItemText primary={text} />
-                  </ListItemButton>
-                </ListItem>
-              ))}
-            </List>
-          </Drawer>
+          <AppBar/>
+          <CkkDrawerType1 width={DRAWER_WIDTH} open={true} />
           <Box
             component="main"
             sx={{
               flexGrow: 1,
               bgcolor: 'background.default',
-              ml: `${DRAWER_WIDTH}px`,
+              ml: ['0', '0', `${DRAWER_WIDTH}px`],
               mt: ['48px', '56px', '64px'],
               mb: ['64px'],
               p: 3,
