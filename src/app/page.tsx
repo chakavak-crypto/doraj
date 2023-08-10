@@ -16,6 +16,9 @@ export default async function HomePage() {
     <Box
       sx={{
         display: 'flex',
+        border: '1px solid black',
+        p: 2,
+        minHeight: '85vh'
       }}
     >
       <Box>
@@ -51,30 +54,6 @@ export default async function HomePage() {
           </Grid>
         </Grid>
       </Box>
-
-      <Drawer
-        sx={{
-          width: 320,
-          flexShrink: 0,
-          '& .MuiDrawer-paper': {
-            width: 320,
-            boxSizing: 'border-box',
-            top: ['48px', '56px', '64px'],
-            height: 'auto',
-            bottom: 0,
-          },
-        }}
-        variant="permanent"
-        anchor="right"
-      >
-        <List sx={{ px: 2 }}>
-          <ListItem disablePadding>
-            <Typography variant="overline" sx={{ fontWeight: 500 }}>
-              On this page
-            </Typography>
-          </ListItem>
-        </List>
-      </Drawer>
     </Box>
   );
 }

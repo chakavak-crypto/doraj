@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Link from 'next/link';
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Toolbar from '@mui/material/Toolbar';
@@ -22,6 +21,8 @@ import ThemeRegistry from '@/components/ThemeRegistry/ThemeRegistry';
 import { dir } from 'i18next';
 import { cookies } from 'next/headers'
 import {fallbackLng} from './i18n/settings'
+import {Card, CardContent, Grid, Stack} from "@mui/material";
+import AppBar from "@/features/AppBar";
 
 export const metadata = {
   title: 'Next.js App Router + Material UI v5',
@@ -31,9 +32,13 @@ export const metadata = {
 const DRAWER_WIDTH = 240;
 
 const LINKS = [
-  { text: 'Home', href: '/', icon: HomeIcon },
-  { text: 'Starred', href: '/starred', icon: StarIcon },
-  { text: 'Tasks', href: '/tasks', icon: ChecklistIcon },
+  { text: 'داشبورد', href: '/', icon: HomeIcon },
+  { text: 'ثبت سفارش', href: '/starred', icon: StarIcon },
+  { text: 'کیف پول', href: '/tasks', icon: ChecklistIcon },
+  { text: 'تاریخچه سفارش ها', href: '/tasks', icon: ChecklistIcon },
+  { text: 'حساب کاربری', href: '/tasks', icon: ChecklistIcon },
+  { text: 'امنیت', href: '/tasks', icon: ChecklistIcon },
+  { text: 'پشتیبانی', href: '/tasks', icon: ChecklistIcon },
 ];
 
 const PLACEHOLDER_LINKS = [
@@ -49,14 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang={lng} dir={dir(lng)}>
       <body>
         <ThemeRegistry>
-          <AppBar position="fixed" sx={{ zIndex: 2000 }}>
-            <Toolbar sx={{ backgroundColor: 'background.paper' }}>
-              <DashboardIcon sx={{ color: '#444', mr: 2, transform: 'translateY(-2px)' }} />
-              <Typography variant="h6" noWrap component="div" color="black">
-                Next.js App Router
-              </Typography>
-            </Toolbar>
-          </AppBar>
+          <AppBar />
           <Drawer
             sx={{
               width: DRAWER_WIDTH,
@@ -65,14 +63,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 width: DRAWER_WIDTH,
                 boxSizing: 'border-box',
                 top: ['48px', '56px', '64px'],
+                bottom: ['48px', '56px', '64px'],
                 height: 'auto',
-                bottom: 0,
+                border: 0
               },
             }}
             variant="permanent"
             anchor="left"
           >
-            <Divider />
             <List>
               {LINKS.map(({ text, href, icon: Icon }) => (
                 <ListItem key={href} disablePadding>
@@ -106,11 +104,27 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               bgcolor: 'background.default',
               ml: `${DRAWER_WIDTH}px`,
               mt: ['48px', '56px', '64px'],
+              mb: ['64px'],
               p: 3,
             }}
           >
             {children}
           </Box>
+          <Card
+            component="footer"
+            sx={{
+              position: 'fixed', bottom: 0, left: 0, right: 0
+            }}
+          >
+            <CardContent>
+              <Grid container spacing={2}>
+                <Grid item flexGrow={1}>تمامی حقوق برای رابسانا محفوظ است</Grid>
+                <Grid item>تماس با ما</Grid>
+                <Grid item>شرایط خدمات</Grid>
+                <Grid item>حریم خصوصی</Grid>
+              </Grid>
+            </CardContent>
+          </Card>
         </ThemeRegistry>
       </body>
     </html>
