@@ -18,6 +18,8 @@ import {useMediaQuery} from "@mui/material";
 import Greeting from "@/components/Greeting";
 import {useTheme} from "@mui/material/styles";
 import PersonIcon from '@mui/icons-material/Person';
+import {useAppDispatch} from "@/tools/redux/hooks";
+import {openMainSideBar} from '@/features/MainSideBar/MainSideBarSlice';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -28,12 +30,12 @@ export interface AppBarProps{
 function ResponsiveAppBar(props: AppBarProps) {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+  const dispatch = useAppDispatch();
   const theme = useTheme();
   const matchesMdUp = useMediaQuery(theme.breakpoints.up('md'));
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    //setAnchorElNav(event.currentTarget);
-    props.onOpen(event);
+    dispatch(openMainSideBar())
   };
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);

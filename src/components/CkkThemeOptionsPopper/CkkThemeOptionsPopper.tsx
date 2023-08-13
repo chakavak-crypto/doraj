@@ -11,7 +11,11 @@ export default function CkkThemeOptionsPopper() {
     const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
     const theme = useTheme();
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+      if(anchorEl === null){
         setAnchorEl(event.currentTarget);
+      }else{
+        handleClose()
+      }
     };
 
     const handleClose = () => {
