@@ -16,18 +16,25 @@ import SupportIcon from "@mui/icons-material/Support";
 import LogoutIcon from "@mui/icons-material/Logout";
 import {useAppDispatch} from "@/tools/redux/hooks";
 import {closeMainSideBar} from "@/features/MainSideBar/MainSideBarSlice";
-
+import {MenuProps} from "@/features/MainSideBar/types";
+import Menu from "@/features/MainSideBar/Menu";
 
 const DRAWER_WIDTH = 240;
 
-const LINKS = [
-  { text: 'داشبورد', href: '/', icon: HomeIcon },
-  { text: 'ثبت سفارش', href: '/starred', icon: StarIcon },
-  { text: 'کیف پول', href: '/tasks', icon: ChecklistIcon },
-  { text: 'تاریخچه سفارش ها', href: '/tasks1', icon: ChecklistIcon },
-  { text: 'حساب کاربری', href: '/tasks2', icon: ChecklistIcon },
-  { text: 'امنیت', href: '/tasks3', icon: ChecklistIcon },
-  { text: 'پشتیبانی', href: '/tasks4', icon: ChecklistIcon },
+const LINKS: MenuProps[] = [
+  { text: 'داشبورد', href: '/', icon: <HomeIcon/> },
+  { text: 'ثبت سفارش', href: '/starred', icon: <StarIcon /> },
+  { text: 'کیف پول', href: '/tasks', icon: <ChecklistIcon /> },
+  { text: 'تاریخچه سفارش ها', href: '/tasks1', icon: <ChecklistIcon /> },
+  { text: 'حساب کاربری', icon: <ChecklistIcon />, submenus: [
+      {
+        text: 'احراز هویت',
+        href: '/foo',
+        icon: <ChecklistIcon/>
+      }
+    ] },
+  { text: 'امنیت', href: '/tasks3', icon: <ChecklistIcon /> },
+  { text: 'پشتیبانی', href: '/tasks4', icon: <ChecklistIcon /> },
 ];
 
 const PLACEHOLDER_LINKS = [
@@ -38,24 +45,11 @@ const PLACEHOLDER_LINKS = [
 
 
 export default function Menus(){
-  const dispatch = useAppDispatch();
-
-  const handleDrawerClose = () => {
-    dispatch(closeMainSideBar())
-  };
   return (
     <>
-      <IconButton onClick={handleDrawerClose}><CloseIcon /></IconButton>
       <List>
-        {LINKS.map(({ text, href, icon: Icon }) => (
-          <ListItem key={href} disablePadding>
-            <ListItemButton component={Link} href={href}>
-              <ListItemIcon>
-                <Icon />
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
+        {LINKS.map(({ text, href, icon, submenus }, indx) => (
+          <Menu key={indx} href={href} text={text} icon={icon} submenus={submenus}/>
         ))}
       </List>
       <Divider sx={{ mt: 'auto' }} />

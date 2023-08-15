@@ -5,12 +5,14 @@ import {useTranslation} from "@/app/i18n/client";
 
 export interface GreetingProps{
   name: string;
+  size?: 'large' | 'small'
 }
 export default function Greeting(props: GreetingProps){
   const {name} = props;
   const [t] = useTranslation();
+  const fontSize = props.size === 'small' ? '0.8rem': 'inherit';
   return (
-    <Box sx={{display: 'flex'}}>
+    <Box sx={{display: 'flex', fontSize: fontSize}}>
       <Box fontSize={'larger'} component={'span'}>{t('hello')}</Box>,
       <Box fontSize={'larger'} fontWeight={'bold'} mx={1} component={'span'}>{name}</Box>
       <Divider orientation={'vertical'} />

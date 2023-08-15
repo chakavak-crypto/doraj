@@ -20,6 +20,7 @@ import {useTheme} from "@mui/material/styles";
 import PersonIcon from '@mui/icons-material/Person';
 import {useAppDispatch} from "@/tools/redux/hooks";
 import {openMainSideBar} from '@/features/MainSideBar/MainSideBarSlice';
+import CkkLogoType1 from "@/components/CkkLogoType1/CkkLogoType1";
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -53,24 +54,9 @@ function ResponsiveAppBar(props: AppBarProps) {
     <AppBar position="fixed" sx={{ zIndex: 2000, bgcolor: 'inherit', color: 'text.primary' }} elevation={0}>
       <Container maxWidth={false}>
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
+          <Box sx={{display: { xs: 'none', md: 'flex' }}}>
+            <CkkLogoType1 />
+          </Box>
 
           <Box sx={{display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -108,25 +94,9 @@ function ResponsiveAppBar(props: AppBarProps) {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
+          <Box sx={{display: { xs: 'flex', md: 'none' }, flexGrow: 1}}>
+            <CkkLogoType1 />
+          </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, ml: '110px' }}>
             <Greeting name={'حسین'} />
           </Box>
