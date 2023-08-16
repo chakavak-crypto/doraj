@@ -7,6 +7,7 @@ export interface MainSideBarProps{
 export interface MenuProps{
   icon?: ReactNode | undefined;
   text: string;
+  selected?: boolean | undefined;
   href?: string | undefined;
   submenus?: MenuProps[] | undefined
 }

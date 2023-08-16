@@ -1,4 +1,4 @@
-import {IconButton} from "@mui/material";
+import {Fab, IconButton} from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -18,11 +18,12 @@ import {useAppDispatch} from "@/tools/redux/hooks";
 import {closeMainSideBar} from "@/features/MainSideBar/MainSideBarSlice";
 import {MenuProps} from "@/features/MainSideBar/types";
 import Menu from "@/features/MainSideBar/Menu";
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 const DRAWER_WIDTH = 240;
 
 const LINKS: MenuProps[] = [
-  { text: 'داشبورد', href: '/', icon: <HomeIcon/> },
+  { text: 'داشبورد', href: '/', icon: <HomeIcon/>, selected: true },
   { text: 'ثبت سفارش', href: '/starred', icon: <StarIcon /> },
   { text: 'کیف پول', href: '/tasks', icon: <ChecklistIcon /> },
   { text: 'تاریخچه سفارش ها', href: '/tasks1', icon: <ChecklistIcon /> },
@@ -48,22 +49,47 @@ export default function Menus(){
   return (
     <>
       <List>
-        {LINKS.map(({ text, href, icon, submenus }, indx) => (
-          <Menu key={indx} href={href} text={text} icon={icon} submenus={submenus}/>
+        {LINKS.map(({ text, href, icon, submenus, selected }, indx) => (
+          <Menu key={indx} href={href} text={text} icon={icon} submenus={submenus} selected={selected}/>
         ))}
       </List>
-      <Divider sx={{ mt: 'auto' }} />
-      <List>
-        {PLACEHOLDER_LINKS.map(({ text, icon: Icon }) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <Icon />
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+      <List sx={{ mt: 'auto' }}>
+        <ListItem sx={{display: {xs: 'none', md: 'flex'}}} key={'close-sidebar'} disablePadding>
+          <ListItemButton sx={{
+            '&:hover': {
+              background: 'inherit'
+            }
+          }}>
+            <ListItemIcon>
+              <Fab disableRipple sx={{
+                width: '32px',
+                height: '32px',
+                minHeight: '32px',
+                boxShadow: 'none',
+                border: '1.5px solid grey',
+                background: 'transparent',
+                color: 'inherit',
+                '&:hover': {
+                  background: 'transparent',
+                }
+              }} size={'small'}><KeyboardArrowRightIcon /></Fab>
+            </ListItemIcon>
+            <ListItemText primary={'بستن سایدبار'} />
+          </ListItemButton>
+        </ListItem>
+        <Divider variant="inset" component="li" sx={{margin: 0}} />
+        <ListItem key={'exit'} disablePadding>
+          <ListItemButton sx={{
+            '&:hover': {
+               background: 'inherit'
+            }
+          }}>
+            <ListItemIcon>
+              <LogoutIcon />
+            </ListItemIcon>
+            <ListItemText primary={'خروج'} />
+          </ListItemButton>
+        </ListItem>
       </List>
     </>
   );

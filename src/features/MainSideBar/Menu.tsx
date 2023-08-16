@@ -26,18 +26,30 @@ export default function Menu(props: MenuProps){
     href,
     icon,
     submenus,
-    text
+    text,
+    selected
   } = props;
   const [open, setOpen] = useState(false);
   const handleClick = () => {
     setOpen(!open);
   };
   return (
-    <ListItem disablePadding sx={{
+    <ListItem selected={selected !== undefined && selected} disablePadding sx={{
       flexDirection: 'column',
-      alignItems: 'inherit'
+      alignItems: 'inherit',
+      borderTopRightRadius: '8px',
+      borderBottomRightRadius: '8px',
+      '&.Mui-selected': {
+        backgroundColor: 'info.main',
+      },
     }}>
-      <CustomListItemButton component={Link} href={href} onClick={handleClick}>
+      <CustomListItemButton component={Link} href={href} onClick={handleClick} sx={{
+        '&:hover': {
+          borderTopRightRadius: '8px',
+          borderBottomRightRadius: '8px',
+        },
+        transition: 'none'
+      }}>
         {icon !== undefined && (
           <ListItemIcon sx={{
             minWidth: '32px'

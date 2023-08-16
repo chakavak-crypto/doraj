@@ -47,7 +47,7 @@ export default function CkkThemeOptionsPopper() {
                     }
                 }}
             >
-                <Paper variant="outlined" elevation={2} sx={{ p: 5 }}>
+                <Paper variant="outlined" sx={{ p: 5 }}>
                     <Box
                         sx={{
                             position: "relative",

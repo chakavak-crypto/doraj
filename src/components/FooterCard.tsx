@@ -10,7 +10,7 @@ export default function FooterCard(){
       }}
     >
       <CardContent>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} sx={{display: {xs: 'flex-reverse'}}}>
           <Grid item flexGrow={1}>تمامی حقوق برای رابسانا محفوظ است</Grid>
           <Grid item>تماس با ما</Grid>
           <Grid item>شرایط خدمات</Grid>

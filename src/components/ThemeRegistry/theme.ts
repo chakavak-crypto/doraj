@@ -11,6 +11,9 @@ const theme = createTheme({
   direction: 'rtl',
   palette: {
     mode: 'dark',
+    info: {
+      main: 'rgba(60, 68, 255, 1)'
+    }
   },
   typography: {
     fontFamily: roboto.style.fontFamily,
