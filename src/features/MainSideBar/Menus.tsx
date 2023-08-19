@@ -19,6 +19,7 @@ import {closeMainSideBar} from "@/features/MainSideBar/MainSideBarSlice";
 import {MenuProps} from "@/features/MainSideBar/types";
 import Menu from "@/features/MainSideBar/Menu";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import {openLogoutModal} from "@/features/LogoutModal/LogoutModalSlice";
 
 const DRAWER_WIDTH = 240;
 
@@ -46,6 +47,7 @@ const PLACEHOLDER_LINKS = [
 
 
 export default function Menus(){
+  const dispatch = useAppDispatch();
   return (
     <>
       <List>
@@ -78,8 +80,12 @@ export default function Menus(){
           </ListItemButton>
         </ListItem>
         <Divider variant="inset" component="li" sx={{margin: 0}} />
-        <ListItem key={'exit'} disablePadding>
-          <ListItemButton sx={{
+        <ListItem
+          key={'exit'}
+          disablePadding>
+          <ListItemButton
+            onClick={() => dispatch(openLogoutModal())}
+            sx={{
             '&:hover': {
                background: 'inherit'
             }

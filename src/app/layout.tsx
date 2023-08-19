@@ -14,6 +14,7 @@ import AppBar from "@/features/AppBar";
 import MainSideBar from "@/features/MainSideBar/MainSideBar";
 import FooterCard from "@/components/FooterCard";
 import StoreRegistry from "@/tools/redux/StoreRegistry";
+import LogoutModal from "@/features/LogoutModal";
 
 export const metadata = {
   title: 'Next.js App Router + Material UI v5',
@@ -47,6 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               {children}
             </Box>
             <FooterCard />
+            <LogoutModal />
           </StoreRegistry>
         </ThemeRegistry>
       </body>

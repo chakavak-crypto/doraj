@@ -109,7 +109,7 @@ export default function CkkAccountPopover() {
                             onClick={handleClose}
                             startIcon={<CkkAvatarWithBadge />}
                             endIcon={<ExpandLessIcon />}>
-                            Open Popover
+                            U4387123
                         </Button>
                         <Box>
                             <BasicList />

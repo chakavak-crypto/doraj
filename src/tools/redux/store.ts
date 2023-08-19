@@ -1,9 +1,11 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import MainSideBarReducer from '@/features/MainSideBar/MainSideBarSlice';
+import LogoutModalReducer from "@/features/LogoutModal/LogoutModalSlice";
 
 export const store = configureStore({
   reducer: {
     main_side_bar: MainSideBarReducer,
+    logout_modal: LogoutModalReducer,
   },
 });
 
