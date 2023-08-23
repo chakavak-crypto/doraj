@@ -15,6 +15,9 @@ const theme = createTheme({
       main: 'rgba(60, 68, 255, 1)'
     }
   },
+  shape: {
+    borderRadius: 8,
+  },
   typography: {
     fontFamily: roboto.style.fontFamily,
   },

@@ -1,15 +1,9 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import HomeIcon from '@mui/icons-material/Home';
-import StarIcon from '@mui/icons-material/Star';
-import ChecklistIcon from '@mui/icons-material/Checklist';
-import SettingsIcon from '@mui/icons-material/Settings';
-import SupportIcon from '@mui/icons-material/Support';
-import LogoutIcon from '@mui/icons-material/Logout';
 import ThemeRegistry from '@/components/ThemeRegistry/ThemeRegistry';
 import {dir} from 'i18next';
 import {cookies} from 'next/headers'
-import {fallbackLng} from './i18n/settings'
+import {fallbackLng} from '@/app/i18n/settings'
 import AppBar from "@/features/AppBar";
 import MainSideBar from "@/features/MainSideBar/MainSideBar";
 import FooterCard from "@/components/FooterCard";
