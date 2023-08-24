@@ -10,7 +10,7 @@ const roboto = Roboto({
 const theme = createTheme({
   direction: 'rtl',
   palette: {
-    mode: 'dark',
+    mode: 'light',
     info: {
       main: 'rgba(60, 68, 255, 1)'
     }
@@ -33,5 +33,10 @@ const theme = createTheme({
     },
   },
 });
+
+export const LtrTheme = createTheme(theme, {
+  direction: 'ltr',
+});
+
 
 export default theme;
