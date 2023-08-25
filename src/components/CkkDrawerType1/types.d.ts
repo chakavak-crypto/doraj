@@ -1,6 +1,6 @@
 import {ReactNode} from "react";
 
-export interface CkkDrawerType1Props{
+export interface CkkDrawerType1Props {
   width: number;
   open: boolean;
   children?: ReactNode;

@@ -1,15 +1,15 @@
 import type {Meta, StoryObj} from '@storybook/react';
 
-import CkkSimpleSwitch from "./CkkSimpleSwitch";
+import CkkThemeSwitch from "./CkkThemeSwitch";
 
 const meta = {
-  title: 'Component/CkkSimpleSwitch',
-  component: CkkSimpleSwitch,
+  title: 'Component/CkkThemeSwitch',
+  component: CkkThemeSwitch,
   tags: ['autodocs'],
   argTypes: {},
 }
 satisfies
-Meta<typeof CkkSimpleSwitch>;
+Meta<typeof CkkThemeSwitch>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

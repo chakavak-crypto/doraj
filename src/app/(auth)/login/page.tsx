@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import LoginCard from "@/features/LoginCard";
 import AuthImg from '@/assets/auth.svg';
 import Image from "next/image";
@@ -26,10 +25,10 @@ export default function LoginPage() {
         }}
       >
         <Box mr={5}>
-          <LoginCard />
+          <LoginCard/>
         </Box>
         <Box sx={{display: {xs: 'none', md: 'block'}, maxWidth: 400}} ml={5}>
-          <Image src={AuthImg} alt={'auth icon'} width={380} />
+          <Image src={AuthImg} alt={'auth icon'} width={380}/>
         </Box>
       </Box>
     </Container>

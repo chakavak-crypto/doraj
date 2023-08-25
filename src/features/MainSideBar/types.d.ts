@@ -1,10 +1,11 @@
 import {ReactNode} from "react";
 
-export interface MainSideBarProps{
+export interface MainSideBarProps {
   width: number;
   open: boolean
 }
-export interface MenuProps{
+
+export interface MenuProps {
   icon?: ReactNode | undefined;
   text: string;
   selected?: boolean | undefined;

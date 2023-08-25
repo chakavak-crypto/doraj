@@ -9,8 +9,8 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import {useTranslation} from "../app/i18n/client";
 
-export default function MediaCard({ heading, text }: { heading: string; text: string }) {
-  const { t } = useTranslation('messages')
+export default function MediaCard({heading, text}: { heading: string; text: string }) {
+  const {t} = useTranslation('messages')
   return (
     <Card>
       <Image

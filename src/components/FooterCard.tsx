@@ -1,7 +1,7 @@
 import {Card, CardContent, Grid, Link, Typography} from "@mui/material";
 import * as React from "react";
 
-export default function FooterCard(){
+export default function FooterCard() {
   return (
     <Card
       component="footer"
@@ -10,7 +10,7 @@ export default function FooterCard(){
         borderRadius: '0',
       }}
     >
-      <CardContent sx={{pt:'8px!important', pb:'4px!important'}}>
+      <CardContent sx={{pt: '8px!important', pb: '4px!important'}}>
         <Grid container spacing={2} sx={{flexDirection: {xs: 'column-reverse', sm: 'row'}}}>
           <Grid item flexGrow={1} sx={{textAlign: {xs: 'center', sm: 'left'}}}>
 
@@ -19,13 +19,13 @@ export default function FooterCard(){
           <Grid item sx={{minWidth: '300px'}}>
             <Grid container sx={{justifyContent: {xs: 'space-around', sm: 'space-between'}}}>
               <Grid item>
-                <Link href={'/contact'}>تماس با ما</Link>
+                <Link underline={'none'} href={'/contact'}>تماس با ما</Link>
               </Grid>
               <Grid item>
-                <Link href={'/terms'}>شرایط خدمات</Link>
+                <Link underline={'none'} href={'/terms'}>شرایط خدمات</Link>
               </Grid>
               <Grid item>
-                <Link href={'/privacy'}>حریم خصوصی</Link>
+                <Link underline={'none'} href={'/privacy'}>حریم خصوصی</Link>
               </Grid>
             </Grid>
           </Grid>

@@ -6,10 +6,10 @@ const meta = {
   title: 'Component/CkkDrawerType1',
   component: CkkDrawerType1,
   tags: ['autodocs'],
-  argTypes: {
-
-  },
-} satisfies Meta<typeof CkkDrawerType1>;
+  argTypes: {},
+}
+satisfies
+Meta<typeof CkkDrawerType1>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

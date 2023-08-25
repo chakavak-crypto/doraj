@@ -1,72 +1,71 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type {Meta, StoryObj} from '@storybook/react';
 
 import CkkChipType2 from "./CkkChipType2";
-import Avatar from "@mui/material/Avatar";
 
 const meta = {
-    title: 'Component/CkkChipType2',
-    component: CkkChipType2,
-    tags: ['autodocs'],
-    argTypes: {
-
-    },
-} satisfies Meta<typeof CkkChipType2>;
+  title: 'Component/CkkChipType2',
+  component: CkkChipType2,
+  tags: ['autodocs'],
+  argTypes: {},
+}
+satisfies
+Meta<typeof CkkChipType2>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Main: Story = {
-    args: {
-        label: "foo",
-        onDelete: undefined
-    },
+  args: {
+    label: "foo",
+    onDelete: undefined
+  },
 };
 
 
 export const Success: Story = {
-    args: {
-        color: 'success',
-        label: "Done",
-        onDelete: undefined
-    },
+  args: {
+    color: 'success',
+    label: "Done",
+    onDelete: undefined
+  },
 };
 
 export const Error: Story = {
-    args: {
-        color: 'error',
-        label: "failed",
-        onDelete: undefined
-    },
+  args: {
+    color: 'error',
+    label: "failed",
+    onDelete: undefined
+  },
 };
 
 export const Warning: Story = {
-    args: {
-        color: 'warning',
-        label: "Pending",
-        onDelete: undefined
-    },
+  args: {
+    color: 'warning',
+    label: "Pending",
+    onDelete: undefined
+  },
 };
 
 export const Primary: Story = {
-    args: {
-        color: 'primary',
-        label: "Foo",
-        onDelete: undefined
-    },
+  args: {
+    color: 'primary',
+    label: "Foo",
+    onDelete: undefined
+  },
 };
 
 export const Secondary: Story = {
-    args: {
-        color: 'secondary',
-        label: "Bar",
-        onDelete: undefined
-    },
+  args: {
+    color: 'secondary',
+    label: "Bar",
+    onDelete: undefined
+  },
 };
 
 export const LongText: Story = {
-    args: {
-        color: 'primary',
-        label: "Very long text",
-        onDelete: undefined
-    },
+  args: {
+    color: 'primary',
+    label: "Very long text",
+    onDelete: undefined
+  },
 };

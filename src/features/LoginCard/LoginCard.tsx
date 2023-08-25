@@ -8,7 +8,7 @@ import {
   CardContent,
   CardHeader,
   Link,
-  Stack, Tab, Tabs,
+  Stack,
   TextField,
   Typography
 } from "@mui/material";
@@ -23,7 +23,7 @@ import CkkMobileField from "@/components/CkkMobileField";
 //TODO extract components
 //TODO change tabindex
 //TODO validate inputs using formik
-export default function LoginCard(){
+export default function LoginCard() {
   const [method, setMethod] = useState<'email' | 'mobile'>('mobile')
   const handleMethodChange = (newVal: 0 | 1) => {
     setMethod(newVal === 0 ? 'mobile' : 'email')
@@ -82,7 +82,8 @@ export default function LoginCard(){
           <Box>
             <Stack direction={'row'} justifyContent={'space-between'}>
               <Typography>پسورد</Typography>
-              <Link fontSize={'smaller'} component={NextLink} underline={'none'}  href={'/forgot'}>رمز عبور را فراموش کرده ام</Link>
+              <Link fontSize={'smaller'} component={NextLink} underline={'none'} href={'/forgot'}>رمز عبور را فراموش
+                کرده ام</Link>
             </Stack>
             <PasswordInput
               fullWidth

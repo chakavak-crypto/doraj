@@ -21,3 +21,4 @@
 //TODO if logged in user reaches auth pages, redirect them to dashboard
 //TODO add loading
 //TODO protect forms using captcha
+//TODO add Loader for images

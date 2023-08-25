@@ -22,7 +22,7 @@ export const LogoutModalSlice = createSlice({
   },
 });
 
-export const { openLogoutModal, closeLogoutModal } = LogoutModalSlice.actions;
+export const {openLogoutModal, closeLogoutModal} = LogoutModalSlice.actions;
 
 export const selectOpen = (state: RootState) => state.logout_modal.open;
 

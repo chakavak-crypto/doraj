@@ -4,7 +4,8 @@ export default function CkkButtonSwitch(props: {
   value: 0 | 1,
   firstTitle: string,
   secondTitle: string,
-  onChange?: (newVal) => unknown }){
+  onChange?: (newVal) => unknown
+}) {
   const {
     value,
     firstTitle,
@@ -13,7 +14,7 @@ export default function CkkButtonSwitch(props: {
   } = props;
 
   const handleChange = (newVal: 0 | 1) => {
-    if(onChange){
+    if (onChange) {
       onChange(newVal);
     }
   }

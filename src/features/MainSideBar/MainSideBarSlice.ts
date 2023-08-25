@@ -25,7 +25,7 @@ export const MainSideBarSlice = createSlice({
   },
 });
 
-export const { openMainSideBar, closeMainSideBar, toggleMainSideBar } = MainSideBarSlice.actions;
+export const {openMainSideBar, closeMainSideBar, toggleMainSideBar} = MainSideBarSlice.actions;
 
 export const selectOpen = (state: RootState) => state.main_side_bar.open;
 

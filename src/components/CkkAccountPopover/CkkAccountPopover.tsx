@@ -1,13 +1,8 @@
 import * as React from 'react';
-import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-import {Avatar, Box, Collapse, Divider, MenuItem, Paper, Select, SelectProps, Stack} from "@mui/material";
-import {deepOrange} from "@mui/material/colors";
+import {Box, Divider, Select, SelectProps} from "@mui/material";
 import CkkAvatarWithBadge from "../CkkAvatarWithBadge";
-import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -29,6 +24,7 @@ const StyledSelect = styled<SelectProps>(Select)(({theme}) => ({
     borderBottomRightRadius: 0,
   }
 }))
+
 function BasicList() {
   return (
     <>
@@ -36,30 +32,30 @@ function BasicList() {
         mb: 2,
         pt: 2,
         borderBottomWidth: '2px'
-      }} variant="middle" component="li" />
+      }} variant="middle" component="li"/>
       <ListItem disablePadding>
-        <ListItemButton sx={{py: 0.5}} >
+        <ListItemButton sx={{py: 0.5}}>
           <ListItemIcon sx={{minWidth: '28px!important'}}>
-            <InboxIcon sx={{width: '17px', height: '17px'}} />
+            <InboxIcon sx={{width: '17px', height: '17px'}}/>
           </ListItemIcon>
-          <ListItemText primary="Inbox" />
+          <ListItemText primary="Inbox"/>
         </ListItemButton>
       </ListItem>
       <ListItem disablePadding>
         <ListItemButton sx={{py: 0.5}}>
           <ListItemIcon sx={{minWidth: '28px!important'}}>
-            <DraftsIcon sx={{width: '17px', height: '17px'}} />
+            <DraftsIcon sx={{width: '17px', height: '17px'}}/>
           </ListItemIcon>
-          <ListItemText primary="Drafts" />
+          <ListItemText primary="Drafts"/>
         </ListItemButton>
       </ListItem>
-      <Divider variant="middle" component="li" />
+      <Divider variant="middle" component="li"/>
       <ListItem disablePadding>
         <ListItemButton sx={{py: 0.5}}>
           <ListItemIcon sx={{minWidth: '28px!important'}}>
-            <InboxIcon sx={{width: '17px', height: '17px'}} />
+            <InboxIcon sx={{width: '17px', height: '17px'}}/>
           </ListItemIcon>
-          <ListItemText primary="Logout" />
+          <ListItemText primary="Logout"/>
         </ListItemButton>
       </ListItem>
     </>
@@ -105,8 +101,9 @@ export default function CkkAccountPopover() {
         }}
         renderValue={() => (
           <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
-            <CkkAvatarWithBadge />
-            <Typography align={'right'} sx={{width: '70px', direction: 'rtl'}} fontSize={'smaller'} noWrap component={'div'}>U34f2133asdfasdfsfasdf</Typography>
+            <CkkAvatarWithBadge/>
+            <Typography align={'right'} sx={{width: '70px', direction: 'rtl'}} fontSize={'smaller'} noWrap
+                        component={'div'}>U34f2133asdfasdfsfasdf</Typography>
           </Box>
         )}
       >

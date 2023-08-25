@@ -41,7 +41,7 @@ export default function LogoutModal() {
           <Typography id="modal-modal-title" variant="h6" component="h2">
             خروج از سیستم
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          <Typography id="modal-modal-description" sx={{mt: 2}}>
             برای خروج از سیستم اطمینان دارید؟
           </Typography>
           <Box>

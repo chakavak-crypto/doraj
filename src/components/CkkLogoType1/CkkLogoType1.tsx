@@ -1,9 +1,8 @@
 import {Box, Stack, Typography} from "@mui/material";
-import LogoLight from '@/assets/logo-light.png';
 import Image from 'next/image'
 import * as React from "react";
 
-export default function CkkLogoType1(){
+export default function CkkLogoType1() {
   return (
     <Stack direction={'row'} spacing={1}>
       <Box sx={{my: 'auto'}}>

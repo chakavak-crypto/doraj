@@ -10,7 +10,6 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import CkkAccountPopover from "@/components/CkkAccountPopover";
 import CkkThemeOptionsPopper from "@/components/CkkThemeOptionsPopper";
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -21,13 +20,15 @@ import PersonIcon from '@mui/icons-material/Person';
 import {useAppDispatch} from "@/tools/redux/hooks";
 import {openMainSideBar} from '@/features/MainSideBar/MainSideBarSlice';
 import CkkLogoType1 from "@/components/CkkLogoType1/CkkLogoType1";
+import ThemeSwitch from "@/features/ThemeSwitch";
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-export interface AppBarProps{
+export interface AppBarProps {
   onOpen?: (event: React.MouseEvent<HTMLElement>) => void
 }
+
 function ResponsiveAppBar(props: AppBarProps) {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
@@ -51,14 +52,14 @@ function ResponsiveAppBar(props: AppBarProps) {
   };
 
   return (
-    <AppBar position="fixed" sx={{ zIndex: 2000, bgcolor: 'inherit', color: 'text.primary' }} elevation={0}>
+    <AppBar position="fixed" sx={{zIndex: 2000, bgcolor: 'inherit', color: 'text.primary'}} elevation={0}>
       <Container maxWidth={false}>
         <Toolbar disableGutters>
-          <Box sx={{display: { xs: 'none', md: 'flex' }}}>
-            <CkkLogoType1 />
+          <Box sx={{display: {xs: 'none', md: 'flex'}}}>
+            <CkkLogoType1/>
           </Box>
 
-          <Box sx={{display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{display: {xs: 'flex', md: 'none'}}}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -67,7 +68,7 @@ function ResponsiveAppBar(props: AppBarProps) {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-              <MenuIcon />
+              <MenuIcon/>
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -84,7 +85,7 @@ function ResponsiveAppBar(props: AppBarProps) {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: {xs: 'block', md: 'none'},
               }}
             >
               {pages.map((page) => (
@@ -94,34 +95,34 @@ function ResponsiveAppBar(props: AppBarProps) {
               ))}
             </Menu>
           </Box>
-          <Box sx={{display: { xs: 'flex', md: 'none' }, flexGrow: 1}}>
-            <CkkLogoType1 />
+          <Box sx={{display: {xs: 'flex', md: 'none'}, flexGrow: 1}}>
+            <CkkLogoType1/>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, ml: '110px' }}>
-            <Greeting name={'حسین'} />
+          <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}, ml: '110px'}}>
+            <Greeting name={'حسین'}/>
           </Box>
 
-          <Box sx={{ flexGrow: 0, flexDirection: 'row', display: 'flex' }}>
+          <Box sx={{flexGrow: 0, flexDirection: 'row', display: 'flex'}}>
             {matchesMdUp && (
               <Box sx={{mr: 5}}>
-                <CkkAccountPopover />
+                <CkkAccountPopover/>
               </Box>
             )}
             <Box>
               <IconButton>
-                <NotificationsIcon />
+                <NotificationsIcon/>
               </IconButton>
             </Box>
             {!matchesMdUp && (
               <Box>
                 <IconButton>
-                  <PersonIcon />
+                  <PersonIcon/>
                 </IconButton>
               </Box>
             )}
             {matchesMdUp && (
               <Box>
-                <CkkThemeOptionsPopper />
+                <CkkThemeOptionsPopper themeSwitch={<ThemeSwitch size={'small'} />}/>
               </Box>
             )}
           </Box>
@@ -130,4 +131,5 @@ function ResponsiveAppBar(props: AppBarProps) {
     </AppBar>
   );
 }
+
 export default ResponsiveAppBar;
