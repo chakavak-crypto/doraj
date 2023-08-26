@@ -1,3 +1,3 @@
-import CkkMobileField from './CkkMobileField';
+import CkkEmailField from './CkkEmailField';
 
-export default CkkMobileField;
+export default CkkEmailField;

@@ -17,6 +17,7 @@ import React, {useState} from "react";
 import {default as NextLink} from 'next/link';
 import CkkButtonSwitch from "@/components/CkkButtonSwitch";
 import CkkMobileField from "@/components/CkkMobileField";
+import CkkEmailField from "@/components/CkkEmailField";
 
 
 //TODO email component, placeholder right, validation
@@ -38,11 +39,19 @@ export default function LoginCard() {
         borderColor: (theme) => theme.palette.divider,
         borderStyle: 'solid',
         borderRadius: '16px',
-        backgroundImage: (theme) => `linear-gradient(45deg, ${theme.palette.background.default}, #1c1c1c)`
+        backgroundImage: (theme) => {
+          if(theme.palette.mode === 'dark'){
+            return `linear-gradient(45deg, ${theme.palette.background.default}, rgba(255, 255, 255, 0.12))`;
+          }
+          return 'none';
+        }
       }}
     >
       <CardHeader
         title={'خوش آمدید'}
+        titleTypographyProps={{
+          fontWeight: 'bolder'
+        }}
         subheader={'لطفا مشخصات خود را وارد کنید'}
       />
       <CardContent>
@@ -63,6 +72,11 @@ export default function LoginCard() {
                   id="mobile"
                   size={'small'}
                   fullWidth
+                  sx={{
+                    '& .MuiOutlinedInput-input': {
+                      fontFamily: 'var(--roboto)'
+                    }
+                  }}
                 />
               </Box>
             )
@@ -73,9 +87,14 @@ export default function LoginCard() {
                 <Stack direction={'row'} justifyContent={'space-between'}>
                   <Typography>ایمیل</Typography>
                 </Stack>
-                <TextField
+                <CkkEmailField
                   fullWidth
                   size={'small'}
+                  sx={{
+                    '& .MuiOutlinedInput-input': {
+                      fontFamily: 'var(--roboto)'
+                    }
+                  }}
                 />
               </Box>
             )
@@ -92,7 +111,7 @@ export default function LoginCard() {
             />
           </Box>
           <Button fullWidth variant={'contained'} color={'info'} size={'small'}>ورود</Button>
-          <Button fullWidth variant={'contained'} color={'secondary'} size={'small'}>با گوگل وارد شوید</Button>
+          <Button fullWidth variant={'outlined'} color={'secondary'} size={'small'}>با گوگل وارد شوید</Button>
         </Stack>
       </CardContent>
       <CardActions sx={{justifyContent: 'center'}}>

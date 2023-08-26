@@ -24,10 +24,10 @@ export default function LoginPage() {
           my: 'auto',
         }}
       >
-        <Box mr={5}>
+        <Box sx={{mr: {xs: 0, sm: 5}}}>
           <LoginCard/>
         </Box>
-        <Box sx={{display: {xs: 'none', md: 'block'}, maxWidth: 400}} ml={5}>
+        <Box sx={{display: {xs: 'none', md: 'block'}, maxWidth: 400, ml: {xs: 0, sm: 4}}}>
           <Image src={AuthImg} alt={'auth icon'} width={380}/>
         </Box>
       </Box>

@@ -8,6 +8,9 @@ export default function FooterCard() {
       sx={{
         position: 'fixed', bottom: 0, left: 0, right: 0,
         borderRadius: '0',
+        borderTopColor: 'divider',
+        borderTopWidth: '1px',
+        borderTopStyle: 'solid'
       }}
     >
       <CardContent sx={{pt: '8px!important', pb: '4px!important'}}>
@@ -19,13 +22,13 @@ export default function FooterCard() {
           <Grid item sx={{minWidth: '300px'}}>
             <Grid container sx={{justifyContent: {xs: 'space-around', sm: 'space-between'}}}>
               <Grid item>
-                <Link underline={'none'} href={'/contact'}>تماس با ما</Link>
+                <Link color={'text.secondary'} underline={'none'} href={'/contact'}>تماس با ما</Link>
               </Grid>
               <Grid item>
-                <Link underline={'none'} href={'/terms'}>شرایط خدمات</Link>
+                <Link color={'text.secondary'} underline={'none'} href={'/terms'}>شرایط خدمات</Link>
               </Grid>
               <Grid item>
-                <Link underline={'none'} href={'/privacy'}>حریم خصوصی</Link>
+                <Link color={'text.secondary'} underline={'none'} href={'/privacy'}>حریم خصوصی</Link>
               </Grid>
             </Grid>
           </Grid>

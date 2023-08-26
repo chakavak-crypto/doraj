@@ -40,7 +40,8 @@ export default function AuthLayout({children}: { children: React.ReactNode }) {
             minHeight: '100%',
             flexGrow: 1,
             bgcolor: 'background.default',
-            mb: ['64px'],
+            pb: ['48px'],
+            pt: ['64px'],
             p: 1,
           }}
         >

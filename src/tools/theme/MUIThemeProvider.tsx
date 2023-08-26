@@ -1,12 +1,12 @@
 import {useTheme} from "next-themes";
-import {CssBaseline, GlobalStyles, responsiveFontSizes, ThemeProvider} from "@mui/material";
+import {CssBaseline, Direction, GlobalStyles, responsiveFontSizes, ThemeProvider} from "@mui/material";
 import {AllowedTheme, darkTheme, globalStyles, lightTheme} from "./theme";
 import {FC, useEffect, useState} from "react";
-import { deepmerge } from '@mui/utils';
 
-const MUIThemeProvider: FC<{ children: React.ReactNode, defaultTheme?:  AllowedTheme}> = ({
+const MUIThemeProvider: FC<{ children: React.ReactNode, defaultTheme?:  AllowedTheme, dir?: Direction}> = ({
                                                                children,
-                                                                defaultTheme
+                                                                defaultTheme,
+                                                                dir
                                                              }) => {
   const { resolvedTheme } = useTheme();
   const [currentTheme, setCurrentTheme] = useState(() => {
@@ -14,7 +14,10 @@ const MUIThemeProvider: FC<{ children: React.ReactNode, defaultTheme?:  AllowedT
   });
 
   useEffect(() => {
+    let selectedDir = dir ? dir : document.dir;
+    selectedDir = selectedDir ? selectedDir : 'rtl';
     let selectedTheme = resolvedTheme === "light" ? lightTheme : darkTheme;
+    selectedTheme.direction = selectedDir as Direction;
     setCurrentTheme(responsiveFontSizes(selectedTheme));
   }, [resolvedTheme]);
 
