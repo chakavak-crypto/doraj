@@ -1,5 +1,15 @@
 {
   "hello": "سلام",
   "share": "اشتراک",
-  "welcome_to_dashboard": "به میزکار خوش آمدید"
+  "welcome_to_dashboard": "به میزکار خوش آمدید",
+  "welcome": "خوش آمدید",
+  "please_enter_your_credentials": "لطفا مشخصات خود را وارد کنید",
+  "mobile": "موبایل",
+  "email": "ایمیل",
+  "password": "گذرواژه",
+  "i_forget_my_password": "گذرواژه ام را فراموش کرده ام",
+  "login": "ورود",
+  "signup": "عضویت",
+  "still_not_registered": "حساب کاربری ندارید؟",
+  "login_with_google": "با گوگل وارد شوید"
 }
