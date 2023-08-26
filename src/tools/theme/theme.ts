@@ -1,55 +1,42 @@
-import {createTheme, css, PaletteOptions} from '@mui/material/styles';
+import {createTheme, css, PaletteOptions, ThemeOptions} from '@mui/material/styles';
+import {deepmerge} from "@mui/utils";
 
 export type AllowedTheme = NonNullable<PaletteOptions["mode"]>;
 export const DEFAULT_THEME: AllowedTheme = "dark";
 
 
 
-export const lightTheme = createTheme({
+const themeOptions: ThemeOptions = {
   direction: 'rtl',
+  typography: {
+    fontFamily: 'var(--iransansfanum)',
+    fontSize: 12,
+    button: {
+      fontStyle: 'normal'
+    }
+  },
+  components: {
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          color: "#3C44FF"
+        }
+      }
+    }
+  }
+};
+
+export const lightTheme = createTheme(deepmerge(themeOptions, {
   palette: {
     mode: "light",
   },
-  typography: {
-    fontFamily: 'var(--iransansfanum)',
-    fontSize: 12,
-    button: {
-      fontStyle: 'normal'
-    }
-  },
-  components: {
-    MuiLink: {
-      styleOverrides: {
-        root: {
-          color: "#3C44FF"
-        }
-      }
-    }
-  }
-});
+}));
 
-export const darkTheme = createTheme({
-  direction: 'rtl',
+export const darkTheme = createTheme(deepmerge(themeOptions, {
   palette: {
     mode: "dark",
   },
-  typography: {
-    fontFamily: 'var(--iransansfanum)',
-    fontSize: 12,
-    button: {
-      fontStyle: 'normal'
-    }
-  },
-  components: {
-    MuiLink: {
-      styleOverrides: {
-        root: {
-          color: "#3C44FF"
-        }
-      }
-    }
-  }
-});
+}));
 
 export const globalStyles = css`
   :root {
