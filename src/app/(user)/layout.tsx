@@ -23,7 +23,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
   const lng = cookieStore.has('rabsana-lang') ? cookieStore.get('rabsana-lang')?.value : fallbackLng;
   const defaultTheme = cookieStore.has('theme') ? cookieStore.get('theme').value : undefined;
   return (
-    <html lang={lng} dir={dir(lng)}>
+    <html lang={lng} dir={dir(lng)} data-theme={defaultTheme ? defaultTheme : 'dark'} style={{colorScheme: defaultTheme ? defaultTheme : 'dark'}}>
     <body>
     <ThemeRegistry defaultTheme={defaultTheme}>
       <StoreRegistry>

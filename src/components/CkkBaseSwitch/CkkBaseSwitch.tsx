@@ -19,9 +19,15 @@ export function getIconPath(Icon: typeof SvgIcon): string {
   return svgDoc.querySelector('path')?.getAttribute('d') as string;
 }
 
-const StyledSwitch = styled((props: CkkBaseSwitchProps) => (
-  <Switch disableRipple {...props as SwitchProps} />
-))(({theme, size, leftColor, rightColor, leftIcon, rightIcon}) => {
+const StyledSwitch = styled((props: CkkBaseSwitchProps) => {
+  let customProps = Object.assign({}, props);
+  // Because Switch component didn't have the following properties, we should remove them first
+  delete customProps['leftColor'];
+  delete customProps['rightIcon'];
+  delete customProps['rightColor'];
+  delete customProps['leftIcon'];
+  return <Switch disableRipple {...customProps as SwitchProps} />
+})(({theme, size, leftColor, rightColor, leftIcon, rightIcon}) => {
   let base;
   switch (size) {
     case 'small':

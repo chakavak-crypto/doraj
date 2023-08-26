@@ -60,6 +60,7 @@ export default function LoginCard() {
                   <Typography>موبایل</Typography>
                 </Stack>
                 <CkkMobileField
+                  id="mobile"
                   size={'small'}
                   fullWidth
                 />
