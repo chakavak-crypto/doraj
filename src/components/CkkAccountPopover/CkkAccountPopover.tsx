@@ -22,7 +22,7 @@ const StyledSelect = styled<SelectProps>(Select)(({theme}) => ({
     borderBottom: 'none',
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
-  }
+  },
 }))
 
 function BasicList() {
@@ -102,7 +102,7 @@ export default function CkkAccountPopover() {
         renderValue={() => (
           <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
             <CkkAvatarWithBadge/>
-            <Typography align={'right'} sx={{width: '70px', direction: 'rtl'}} fontSize={'smaller'} noWrap
+            <Typography fontFamily={'var(--roboto)'} align={'right'} sx={{width: '70px', direction: 'rtl'}} fontSize={'smaller'} noWrap
                         component={'div'}>U34f2133asdfasdfsfasdf</Typography>
           </Box>
         )}

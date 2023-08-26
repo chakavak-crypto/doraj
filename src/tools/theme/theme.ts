@@ -1,19 +1,21 @@
-import {Roboto} from 'next/font/google';
 import {createTheme, css, PaletteOptions} from '@mui/material/styles';
 
 export type AllowedTheme = NonNullable<PaletteOptions["mode"]>;
 export const DEFAULT_THEME: AllowedTheme = "dark";
 
-const roboto = Roboto({
-  weight: ['300', '400', '500', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-});
+
 
 export const lightTheme = createTheme({
   direction: 'rtl',
   palette: {
     mode: "light",
+  },
+  typography: {
+    fontFamily: 'var(--iransansfanum)',
+    fontSize: 12,
+    button: {
+      fontStyle: 'normal'
+    }
   },
   components: {
     MuiLink: {
@@ -30,6 +32,13 @@ export const darkTheme = createTheme({
   direction: 'rtl',
   palette: {
     mode: "dark",
+  },
+  typography: {
+    fontFamily: 'var(--iransansfanum)',
+    fontSize: 12,
+    button: {
+      fontStyle: 'normal'
+    }
   },
   components: {
     MuiLink: {
@@ -66,9 +75,6 @@ const theme = createTheme({
   },
   shape: {
     borderRadius: 8,
-  },
-  typography: {
-    fontFamily: roboto.style.fontFamily,
   },
   components: {
     MuiAlert: {
