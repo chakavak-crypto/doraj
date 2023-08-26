@@ -47,7 +47,13 @@
     "eslint": "latest",
     "eslint-config-next": "latest",
     "eslint-plugin-storybook": "^0.6.13",
+    "git-cz": "^4.9.0",
     "storybook": "^7.2.2",
     "typescript": "latest"
+  },
+  "config": {
+    "commitizen": {
+      "path": "git-cz"
+    }
   }
 }
