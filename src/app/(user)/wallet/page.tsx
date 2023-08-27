@@ -1,3 +1,9 @@
+import CkkContent from "@/components/CkkContent/CkkContent";
+
 export default function WalletPage(){
-  return <div>wallet</div>
+  return (
+    <CkkContent>
+      <div>wallet</div>
+    </CkkContent>
+  );
 }

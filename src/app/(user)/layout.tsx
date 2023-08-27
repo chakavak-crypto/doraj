@@ -18,7 +18,7 @@ export const metadata = {
 
 const DRAWER_WIDTH = 240;
 
-
+//TODO compute main box height dynamically
 export default function RootLayout({children}: { children: React.ReactNode }) {
   const cookieStore = cookies()
   const lng = cookieStore.has('rabsana-lang') ? cookieStore.get('rabsana-lang')?.value : fallbackLng;
@@ -31,7 +31,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
       style={{colorScheme: defaultTheme ? defaultTheme : 'dark'}}
       className={`${IRANSansX.variable} ${IRANSansXFaNum.variable} ${roboto.variable}`}
     >
-    <body>
+    <body style={{height: '100vh'}}>
     <ThemeRegistry defaultTheme={defaultTheme}>
       <StoreRegistry>
         <AppBar/>
@@ -39,12 +39,12 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
         <Box
           component="main"
           sx={{
-            flexGrow: 1,
             bgcolor: 'background.default',
             ml: ['0', '0', `${DRAWER_WIDTH}px`],
-            mt: ['48px', '56px', '64px'],
-            mb: ['64px'],
-            p: 3,
+            pt: ['74px'],
+            pb: ['80px', '48px'],
+            px: [1, 2],
+            height: '100%'
           }}
         >
           {children}

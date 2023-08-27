@@ -1,7 +1,7 @@
-import {Card, CardContent, Grid, Link, Typography} from "@mui/material";
+import {Card, CardContent, CardProps, Grid, Link, Typography} from "@mui/material";
 import * as React from "react";
 
-export default function FooterCard() {
+export default function FooterCard(props: CardProps) {
   return (
     <Card
       component="footer"
@@ -12,6 +12,7 @@ export default function FooterCard() {
         borderTopWidth: '1px',
         borderTopStyle: 'solid'
       }}
+      {...props}
     >
       <CardContent sx={{pt: '8px!important', pb: '4px!important'}}>
         <Grid container spacing={2} sx={{flexDirection: {xs: 'column-reverse', sm: 'row'}}}>

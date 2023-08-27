@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
+import {default as AppBar, AppBarProps as MuiAppBarProps}  from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -25,7 +25,7 @@ import ThemeSwitch from "@/features/ThemeSwitch";
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-export interface AppBarProps {
+export interface AppBarProps extends MuiAppBarProps{
   onOpen?: (event: React.MouseEvent<HTMLElement>) => void
 }
 
@@ -52,7 +52,7 @@ function ResponsiveAppBar(props: AppBarProps) {
   };
 
   return (
-    <AppBar position="fixed" sx={{zIndex: 2000, bgcolor: 'inherit', color: 'text.primary'}} elevation={0}>
+    <AppBar position="fixed" sx={{zIndex: 2000, bgcolor: 'inherit', color: 'text.primary'}} elevation={0} {...props}>
       <Container maxWidth={false}>
         <Toolbar disableGutters>
           <Box sx={{display: {xs: 'none', md: 'flex'}}}>

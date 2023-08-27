@@ -9,9 +9,7 @@ export default async function HomePage() {
   return (
     <Box
       sx={{
-        display: 'flex',
         p: 2,
-        minHeight: '85vh'
       }}
     >
       <Box>
@@ -20,6 +18,85 @@ export default async function HomePage() {
           This app uses the Next.js App Router and Material UI v5.
         </Alert>
       </Box>
+      <Box>
+        <Alert severity="info" sx={{mt: 2, mb: 5}}>
+          <AlertTitle>{t('hello')} 👋</AlertTitle>
+          This app uses the Next.js App Router and Material UI v5.
+        </Alert>
+      </Box>
+      <Box>
+        <Alert severity="info" sx={{mt: 2, mb: 5}}>
+          <AlertTitle>{t('hello')} 👋</AlertTitle>
+          This app uses the Next.js App Router and Material UI v5.
+        </Alert>
+      </Box>
+      <Box>
+        <Alert severity="info" sx={{mt: 2, mb: 5}}>
+          <AlertTitle>{t('hello')} 👋</AlertTitle>
+          This app uses the Next.js App Router and Material UI v5.
+        </Alert>
+      </Box>
+      <Box>
+        <Alert severity="info" sx={{mt: 2, mb: 5}}>
+          <AlertTitle>{t('hello')} 👋</AlertTitle>
+          This app uses the Next.js App Router and Material UI v5.
+        </Alert>
+      </Box>
+      <Box>
+        <Alert severity="info" sx={{mt: 2, mb: 5}}>
+          <AlertTitle>{t('hello')} 👋</AlertTitle>
+          This app uses the Next.js App Router and Material UI v5.
+        </Alert>
+      </Box>
+      <Box>
+        <Alert severity="info" sx={{mt: 2, mb: 5}}>
+          <AlertTitle>{t('hello')} 👋</AlertTitle>
+          This app uses the Next.js App Router and Material UI v5.
+        </Alert>
+      </Box>
+      <Box>
+        <Alert severity="info" sx={{mt: 2, mb: 5}}>
+          <AlertTitle>{t('hello')} 👋</AlertTitle>
+          This app uses the Next.js App Router and Material UI v5.
+        </Alert>
+      </Box>
+      <Box>
+        <Alert severity="info" sx={{mt: 2, mb: 5}}>
+          <AlertTitle>{t('hello')} 👋</AlertTitle>
+          This app uses the Next.js App Router and Material UI v5.
+        </Alert>
+      </Box>
+      <Box>
+        <Alert severity="info" sx={{mt: 2, mb: 5}}>
+          <AlertTitle>{t('hello')} 👋</AlertTitle>
+          This app uses the Next.js App Router and Material UI v5.
+        </Alert>
+      </Box>
+      <Box>
+        <Alert severity="info" sx={{mt: 2, mb: 5}}>
+          <AlertTitle>{t('hello')} 👋</AlertTitle>
+          This app uses the Next.js App Router and Material UI v5.
+        </Alert>
+      </Box>
+      <Box>
+        <Alert severity="info" sx={{mt: 2, mb: 5}}>
+          <AlertTitle>{t('hello')} 👋</AlertTitle>
+          This app uses the Next.js App Router and Material UI v5.
+        </Alert>
+      </Box>
+      <Box>
+        <Alert severity="info" sx={{mt: 2, mb: 5}}>
+          <AlertTitle>{t('hello')} 👋</AlertTitle>
+          This app uses the Next.js App Router and Material UI v5.
+        </Alert>
+      </Box>
+      <Box>
+        <Alert severity="info" sx={{mt: 2, mb: 5}}>
+          <AlertTitle>{t('hello')} 👋</AlertTitle>
+          This app uses the Next.js App Router and Material UI v5.
+        </Alert>
+      </Box>
+
     </Box>
   );
 }

@@ -22,9 +22,9 @@ const DRAWER_WIDTH = 240;
 
 const LINKS: MenuProps[] = [
   {text: 'داشبورد', href: '/', icon: <HomeIcon/>, selected: true},
-  {text: 'ثبت سفارش', href: '/starred', icon: <StarIcon/>},
-  {text: 'کیف پول', href: '/tasks', icon: <ChecklistIcon/>},
-  {text: 'تاریخچه سفارش ها', href: '/tasks1', icon: <ChecklistIcon/>},
+  {text: 'ثبت سفارش', href: '/order', icon: <StarIcon/>},
+  {text: 'کیف پول', href: '/wallet', icon: <ChecklistIcon/>},
+  {text: 'تاریخچه سفارش ها', href: '/orders', icon: <ChecklistIcon/>},
   {
     text: 'حساب کاربری', icon: <ChecklistIcon/>, submenus: [
       {

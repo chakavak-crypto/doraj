@@ -15,6 +15,9 @@ const themeOptions: ThemeOptions = {
       fontStyle: 'normal'
     }
   },
+  shape: {
+    borderRadius: 8,
+  },
   components: {
     MuiLink: {
       styleOverrides: {
