@@ -1,16 +1,22 @@
 import CkkContent from "@/components/CkkContent/CkkContent";
-import {Alert, Box, Breadcrumbs, Button, CardContent, Stack, Typography} from "@mui/material";
-import {useState} from "react";
 import CkkAlertType1 from "@/components/CkkAlertType1";
-import Link from "next/link";
+import {Box, Button, Stack, Typography} from "@mui/material";
 import CkkBreadcrumbsType1 from "@/components/CkkBreadcrumbsType1";
-import SendIcon from '@mui/icons-material/Send';
-import AssignmentIcon from '@mui/icons-material/Assignment';
+import Link from "next/link";
 import HomeIcon from "@mui/icons-material/Home";
-import CkkCardType3 from "@/components/CkkCardType3";
-//TODO buttons coloring
-export default function WalletPage(){
+import AssignmentIcon from "@mui/icons-material/Assignment";
+import {ReactNode} from "react";
 
+interface OrderLayoutProps{
+  params: {
+    type: 'buy' | 'sell',
+    asset?: 'string',
+    volume?: number,
+  }
+}
+export default function OrderLayout({children}: {
+  children: ReactNode
+}){
   return (
     <CkkContent>
       <CkkAlertType1 severity={'error'} variant="filled">
@@ -38,13 +44,7 @@ export default function WalletPage(){
         </Box>
       </Stack>
       <Box sx={{mt: 3}}>
-        <CkkCardType3 sx={{
-          mx: 'auto'
-        }}>
-          <CardContent>
-            foo
-          </CardContent>
-        </CkkCardType3>
+        {children}
       </Box>
     </CkkContent>
   );
