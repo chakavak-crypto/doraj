@@ -17,7 +17,6 @@ const styles = {
   py: 1,
   px: 1.5,
   overflowY: 'scroll',
-  backgroundImage: 'none',
 }
 export default function CkkContent(props: CkkContentProps){
   return (

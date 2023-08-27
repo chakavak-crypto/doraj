@@ -20,6 +20,7 @@ import CkkMobileField from "@/components/CkkMobileField";
 import CkkEmailField from "@/components/CkkEmailField";
 import {useTranslation} from "@/app/i18n/client";
 import translate from "@/tools/translation";
+import CkkCardType3 from "@/components/CkkCardType3";
 
 
 //TODO email component, placeholder right, validation
@@ -33,23 +34,7 @@ export default function LoginCard() {
     setMethod(newVal === 0 ? 'mobile' : 'email')
   };
   return (
-    <Card
-      sx={{
-        maxWidth: 400,
-        minWidth: 300,
-        boxShadow: 'none',
-        borderWidth: '1px',
-        borderColor: (theme) => theme.palette.divider,
-        borderStyle: 'solid',
-        borderRadius: '16px',
-        backgroundImage: (theme) => {
-          if(theme.palette.mode === 'dark'){
-            return `linear-gradient(45deg, ${theme.palette.background.default}, rgba(255, 255, 255, 0.12))`;
-          }
-          return 'none';
-        }
-      }}
-    >
+    <CkkCardType3>
       <CardHeader
         title={t('welcome')}
         titleTypographyProps={{
@@ -120,6 +105,6 @@ export default function LoginCard() {
         <Typography component={'span'} color={'text.secondary'}>{t('still_not_registered')}</Typography>
         <Link component={NextLink} href={'/signup'} underline={'none'} px={1}>{t('signup')}</Link>
       </CardActions>
-    </Card>
+    </CkkCardType3>
   );
 }

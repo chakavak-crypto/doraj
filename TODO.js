@@ -22,3 +22,7 @@
 //TODO add loading
 //TODO protect forms using captcha
 //TODO add Loader for images
+//TODO close sidebar button in desktop mode
+//TODO change sidebar active item based on current page
+//TODO build project failed
+//TODO storybook not working
