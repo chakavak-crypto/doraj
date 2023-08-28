@@ -26,3 +26,4 @@
 //TODO change sidebar active item based on current page
 //TODO build project failed
 //TODO storybook not working
+//TODO Extract Toman from all places, because we have multiple currencies

@@ -11,5 +11,7 @@
   "login": "ورود",
   "signup": "عضویت",
   "still_not_registered": "حساب کاربری ندارید؟",
-  "login_with_google": "با گوگل وارد شوید"
+  "login_with_google": "با گوگل وارد شوید",
+  "buy": "خرید",
+  "sell": "فروش"
 }
