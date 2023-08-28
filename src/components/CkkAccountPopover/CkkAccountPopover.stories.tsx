@@ -7,9 +7,7 @@ const meta = {
   component: CkkAccountPopover,
   tags: ['autodocs'],
   argTypes: {},
-}
-satisfies
-Meta<typeof CkkAccountPopover>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

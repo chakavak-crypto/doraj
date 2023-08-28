@@ -7,9 +7,7 @@ const meta = {
   component: PasswordInput,
   tags: ['autodocs'],
   argTypes: {},
-}
-satisfies
-Meta<typeof PasswordInput>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

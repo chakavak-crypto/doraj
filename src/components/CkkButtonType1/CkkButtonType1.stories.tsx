@@ -7,9 +7,7 @@ const meta = {
   component: CkkButtonType1,
   tags: ['autodocs'],
   argTypes: {},
-}
-satisfies
-Meta<typeof CkkButtonType1>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

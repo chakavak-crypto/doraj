@@ -7,9 +7,7 @@ const meta = {
   component: CkkAvatarWithBadge,
   tags: ['autodocs'],
   argTypes: {},
-}
-satisfies
-Meta<typeof CkkAvatarWithBadge>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

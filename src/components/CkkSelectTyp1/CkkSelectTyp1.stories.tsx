@@ -8,9 +8,7 @@ const meta = {
   component: CkkSelectTyp1,
   tags: ['autodocs'],
   argTypes: {},
-}
-satisfies
-Meta<typeof CkkSelectTyp1>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

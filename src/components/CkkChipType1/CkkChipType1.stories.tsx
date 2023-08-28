@@ -8,9 +8,7 @@ const meta = {
   component: CkkChipType1,
   tags: ['autodocs'],
   argTypes: {},
-}
-satisfies
-Meta<typeof CkkChipType1>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

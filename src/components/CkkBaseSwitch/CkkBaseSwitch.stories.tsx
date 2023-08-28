@@ -7,9 +7,7 @@ const meta = {
   component: CkkBaseSwitch,
   tags: ['autodocs'],
   argTypes: {},
-}
-satisfies
-Meta<typeof CkkBaseSwitch>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
