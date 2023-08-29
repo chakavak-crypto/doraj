@@ -27,3 +27,4 @@
 //TODO build project failed
 //TODO storybook not working
 //TODO Extract Toman from all places, because we have multiple currencies
+//TODO Learn react new server component feature
