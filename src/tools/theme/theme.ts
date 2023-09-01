@@ -32,12 +32,24 @@ const themeOptions: ThemeOptions = {
 export const lightTheme = createTheme(deepmerge(themeOptions, {
   palette: {
     mode: "light",
+    primary: {
+      main: '#3C44FF'
+    }
   },
 }));
 
 export const darkTheme = createTheme(deepmerge(themeOptions, {
   palette: {
     mode: "dark",
+    primary: {
+      main: '#3C44FF'
+    },
+    secondary: {
+      main: '#4B5565'
+    },
+    success: {
+      main: '#16C75D'
+    }
   },
 }));
 

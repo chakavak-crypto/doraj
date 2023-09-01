@@ -1,7 +1,7 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Avatar, Fab, IconButton, OutlinedInputProps, SliderProps, TextField} from "@mui/material";
 import {LtrTheme} from "@/tools/theme/ThemeRegistry";
-import {NumericFormat} from "react-number-format";
+import {NumberFormatBase, NumericFormat, NumericFormatProps, useNumericFormat} from "react-number-format";
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import {styled} from "@mui/material/styles";
@@ -84,10 +84,37 @@ const StyledSlider = styled<SliderProps>(Slider)(({ theme }) => ({
 
 export interface CkkCurrencyFieldType1 extends OutlinedInputProps{
   hasSlider?: boolean | undefined;
+  base?: number;
+  defaultValue?: number;
   label?: string | undefined;
-  InputProps?: OutlinedInputProps | undefined;
+  InputProps?: OutlinedInputProps |  NumericFormatProps | undefined;
   icon?: string | undefined;
   symbol?: string | undefined;
+  min?: number;
+  max?: number;
+}
+const CustomNumericFormat = (props) => {
+  const { format, ...rest } = useNumericFormat(props);
+
+  const _format = (val: string): string => {
+    let newVal = val;
+    if(props.min !== undefined && val < props.min) {
+      newVal = props.min;
+    }
+    if(props.max !== undefined && val > props.max) {
+      newVal = props.max;
+    }
+
+    newVal = newVal + '';
+
+    return format ? format(newVal) : newVal;
+  }
+  return (
+    <NumberFormatBase
+      format={_format}
+      {...rest}
+    />
+  );
 }
 export default function CkkCurrencyFieldType1(props: CkkCurrencyFieldType1) {
   const {
@@ -95,21 +122,43 @@ export default function CkkCurrencyFieldType1(props: CkkCurrencyFieldType1) {
     label,
     InputProps,
     icon,
-    symbol
+    symbol,
+    base,
+    defaultValue,
+    min,
+    max,
   } = props;
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState<number | string>(() => {
+    return defaultValue !== undefined ? defaultValue : '';
+  });
+  const [sliderValue, setSliderValue] = useState(0)
 
-  const handleClear = () => {
-    setValue('');
+  useEffect(() => {
+    if(!value || !base) setSliderValue(0)
+
+    setSliderValue(Math.round(value/base*100))
+  }, [value])
+
+  const handleClearInput = () => {
+    setValue('')
   }
+  const handleSliderChange = (event: Event, newValue: number) => {
+    setSliderValue(newValue);
+    setValue(newValue*base/100)
+  };
 
   return (
     <>
       <LtrTheme>
-        <NumericFormat
+        <CustomNumericFormat
           thousandSeparator=","
           customInput={TextField}
           value={value}
+          min={min}
+          max={max}
+          onValueChange={(values, sourceInfo) => {
+            setValue(values.value)
+          }}
           allowNegative={false}
           sx={{
             '& .MuiInputBase-root': {
@@ -143,7 +192,7 @@ export default function CkkCurrencyFieldType1(props: CkkCurrencyFieldType1) {
                   {!!label && (
                     <Box component={'span'} fontSize={'smaller'} ml={0.5}>{ label }</Box>
                   )}
-                  <IconButton size={'small'}>
+                  <IconButton onClick={handleClearInput} size={'small'}>
                     <CloseIcon />
                   </IconButton>
                 </Box>
@@ -158,6 +207,8 @@ export default function CkkCurrencyFieldType1(props: CkkCurrencyFieldType1) {
           <StyledSlider
             defaultValue={10}
             size={'small'}
+            value={sliderValue}
+            onChange={handleSliderChange}
             getAriaValueText={valuetext}
             step={1}
             marks={marks}

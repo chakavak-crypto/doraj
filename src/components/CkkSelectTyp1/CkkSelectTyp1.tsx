@@ -1,5 +1,16 @@
 import * as React from 'react';
-import {Box, Button, Divider, Grid, List, ListItemButton, Stack, Typography} from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Button,
+  Divider,
+  Grid,
+  List,
+  ListItemButton,
+  MenuItemProps,
+  Stack,
+  Typography
+} from "@mui/material";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -9,42 +20,89 @@ import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 import IconButton from '@mui/material/IconButton';
 import CkkButtonType1 from "../CkkButtonType1";
+import {useId, useLayoutEffect, useRef, useState} from "react";
+import CkkSearchField from "@/components/CkkSearchField";
+import {styled} from "@mui/material/styles";
 
+
+const CustomMenuItem = styled<MenuItemProps>(MenuItem)(({theme}) => ({
+  disableRipple: true,
+  '&:hover': {
+    backgroundColor: 'inherit',
+    cursor: 'auto'
+  },
+  '&.Mui-focusVisible':{
+    background: 'inherit',
+  },
+  paddingLeft: 4,
+  paddingRight: 4,
+  pt: 0,
+}))
 export default function CkkSelectTyp1() {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null | undefined>(null);
+  const [width, setWidth] = useState(0);
+  const elementRef = useRef<any>(null);
   const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
+  const containerId = useId();
+  const popoverId = useId();
+  const buttonId = useId();
+  useLayoutEffect(() => {
+    const handleResize = () => {
+      // @ts-ignore
+      setWidth(elementRef.current.offsetWidth);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    }
+  }, []);
+  useLayoutEffect(() => {
+    setWidth(elementRef?.current?.offsetWidth)
+  }, [elementRef?.current?.offsetWidth]);
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(document.getElementById(containerId));
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   return (
-    <Box>
+    <Box
+      id={containerId}
+      ref={elementRef}
+    >
       <Button
         variant={'contained'}
-        id="demo-positioned-button"
-        aria-controls={open ? 'demo-positioned-menu' : undefined}
+        color={'inherit'}
+        id={buttonId}
+        fullWidth
+        aria-controls={open ? popoverId : undefined}
+        aria-describedby={popoverId}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon/>}
-        startIcon={<img src={'https://placehold.co/25'}/>}
+        startIcon={<Avatar src={'/btc.jpg'} sx={{width: 25, height: 25}}/>}
       >
-        <Box component={'span'}>Foo</Box>
-        <Divider
-          sx={{
-            mx: 2
-          }}
-          orientation="vertical"
-          variant="middle"
-          flexItem
-          color={'inherit'}/>
-        <Box component={'span'} sx={{pr: 8}}>Bar</Box>
+        <Box display={'flex'} flexGrow={1} alignItems={'center'}>
+          <Typography
+            noWrap
+            component={'span'}
+            display={'inline-block'}
+            sx={{
+              maxWidth: ['8rem', '6rem']
+            }}
+            >بیت کوین</Typography>
+          <Box component={'span'} fontSize={'large'} mx={'2px'} fontWeight={'lighter'}>|</Box>
+          <Box component={'span'}>BTC</Box>
+        </Box>
       </Button>
       <Menu
-        id="demo-positioned-menu"
-        aria-labelledby="demo-positioned-button"
+        id={popoverId}
+        aria-labelledby={buttonId}
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
@@ -56,188 +114,96 @@ export default function CkkSelectTyp1() {
           vertical: 'top',
           horizontal: 'left',
         }}
+        sx={{
+          '& .MuiPaper-root': {
+            width: width,
+          },
+          '& .MuiPaper-root .MuiList-root': {
+            pt: 0,
+          }
+        }}
       >
-        <MenuItem
+        <CustomMenuItem
           disableRipple
           sx={{
             justifyContent: 'space-between',
-            '&:hover': {
-              backgroundColor: 'inherit',
-              cursor: 'auto'
-            },
           }}
           component={'div'}
         >
-          <div>foo</div>
+          <div>انتخاب ارز</div>
           <IconButton size={'small'} onClick={handleClose} aria-label="delete">
             <KeyboardArrowUpIcon/>
           </IconButton>
-        </MenuItem>
-        <MenuItem
-          sx={{
-            '&:hover': {
-              backgroundColor: 'inherit',
-              cursor: 'auto'
-            },
-          }}
+        </CustomMenuItem>
+        <CustomMenuItem
           disableRipple
-          divider
           component={'div'}>
-          <TextField
-            size={'small'}
-            variant="outlined"
-            placeholder={'Search'}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon/>
-                </InputAdornment>
-              ),
-            }}
-          />
-        </MenuItem>
-        <MenuItem
+          <CkkSearchField />
+        </CustomMenuItem>
+        <Divider sx={{mx: 1, borderBottomWidth: '1px'}}/>
+        <CustomMenuItem
           disableRipple
-          divider
           sx={{
             flexDirection: 'column',
             alignItems: 'start',
-            '&:hover': {
-              backgroundColor: 'inherit',
-              cursor: 'auto'
-            },
           }}
         >
-          <Box sx={{mb: 3}}>Latest filters</Box>
-          <Grid container spacing={3}>
+          <Typography sx={{mb: 1}}>جستجوهای اخیر</Typography>
+          <Grid container spacing={1}>
             <Grid item xs={6}>
-              <CkkButtonType1 size={'small'}>Item1</CkkButtonType1>
+              <CkkButtonType1 color={'inherit'} size={'small'}>Item1</CkkButtonType1>
             </Grid>
             <Grid item xs={6}>
-              <CkkButtonType1 size={'small'}>Item2</CkkButtonType1>
+              <CkkButtonType1 color={'inherit'} size={'small'}>Item2</CkkButtonType1>
             </Grid>
             <Grid item xs={6}>
-              <CkkButtonType1 size={'small'}>Item3</CkkButtonType1>
+              <CkkButtonType1 color={'inherit'} size={'small'}>Item3</CkkButtonType1>
             </Grid>
           </Grid>
-        </MenuItem>
-        <MenuItem
+        </CustomMenuItem>
+        <Divider sx={{mx: 1, borderBottomWidth: '1px'}}/>
+        <CustomMenuItem
           disableRipple
           component={'div'}
-          sx={{
-            '&:hover': {
-              backgroundColor: 'inherit',
-              cursor: 'auto'
-            },
-          }}
         >
           <List dense sx={{
             width: '100%',
             maxHeight: '200px',
             position: 'relative',
-            overflow: 'auto',
+            overflowY: 'auto',
+            overflowX: 'hidden'
           }}>
-            <ListItemButton divider onClick={handleClose} sx={{justifyContent: 'space-between'}}>
-              <Stack direction={'row'} spacing={4} sx={{alignSelf: 'flex-end'}}>
-                <Box><img src={'https://placehold.co/25'}/></Box>
-                <Stack direction={'row'} spacing={2}>
-                  <Typography>Foo</Typography>
-                  <Divider orientation={'vertical'} sx={{height: '60%'}}/>
-                  <Typography>Bar</Typography>
-                </Stack>
-              </Stack>
-              <Typography>30,000,431,000</Typography>
-            </ListItemButton>
-            <ListItemButton divider onClick={handleClose} sx={{justifyContent: 'space-between'}}>
-              <Stack direction={'row'} spacing={4} sx={{alignSelf: 'flex-end'}}>
-                <Box><img src={'https://placehold.co/25'}/></Box>
-                <Stack direction={'row'} spacing={2}>
-                  <Typography>Foo</Typography>
-                  <Divider orientation={'vertical'} sx={{height: '60%'}}/>
-                  <Typography>Bar</Typography>
-                </Stack>
-              </Stack>
-              <Typography>30,000,431,000</Typography>
-            </ListItemButton>
-            <ListItemButton divider onClick={handleClose} sx={{justifyContent: 'space-between'}}>
-              <Stack direction={'row'} spacing={4} sx={{alignSelf: 'flex-end'}}>
-                <Box><img src={'https://placehold.co/25'}/></Box>
-                <Stack direction={'row'} spacing={2}>
-                  <Typography>Foo</Typography>
-                  <Divider orientation={'vertical'} sx={{height: '60%'}}/>
-                  <Typography>Bar</Typography>
-                </Stack>
-              </Stack>
-              <Typography>30,000,431,000</Typography>
-            </ListItemButton>
-            <ListItemButton divider onClick={handleClose} sx={{justifyContent: 'space-between'}}>
-              <Stack direction={'row'} spacing={4} sx={{alignSelf: 'flex-end'}}>
-                <Box><img src={'https://placehold.co/25'}/></Box>
-                <Stack direction={'row'} spacing={2}>
-                  <Typography>Foo</Typography>
-                  <Divider orientation={'vertical'} sx={{height: '60%'}}/>
-                  <Typography>Bar</Typography>
-                </Stack>
-              </Stack>
-              <Typography>30,000,431,000</Typography>
-            </ListItemButton>
-            <ListItemButton divider onClick={handleClose} sx={{justifyContent: 'space-between'}}>
-              <Stack direction={'row'} spacing={4} sx={{alignSelf: 'flex-end'}}>
-                <Box><img src={'https://placehold.co/25'}/></Box>
-                <Stack direction={'row'} spacing={2}>
-                  <Typography>Foo</Typography>
-                  <Divider orientation={'vertical'} sx={{height: '60%'}}/>
-                  <Typography>Bar</Typography>
-                </Stack>
-              </Stack>
-              <Typography>30,000,431,000</Typography>
-            </ListItemButton>
-            <ListItemButton divider onClick={handleClose} sx={{justifyContent: 'space-between'}}>
-              <Stack direction={'row'} spacing={4} sx={{alignSelf: 'flex-end'}}>
-                <Box><img src={'https://placehold.co/25'}/></Box>
-                <Stack direction={'row'} spacing={2}>
-                  <Typography>Foo</Typography>
-                  <Divider orientation={'vertical'} sx={{height: '60%'}}/>
-                  <Typography>Bar</Typography>
-                </Stack>
-              </Stack>
-              <Typography>30,000,431,000</Typography>
-            </ListItemButton>
-            <ListItemButton divider onClick={handleClose} sx={{justifyContent: 'space-between'}}>
-              <Stack direction={'row'} spacing={4} sx={{alignSelf: 'flex-end'}}>
-                <Box><img src={'https://placehold.co/25'}/></Box>
-                <Stack direction={'row'} spacing={2}>
-                  <Typography>Foo</Typography>
-                  <Divider orientation={'vertical'} sx={{height: '60%'}}/>
-                  <Typography>Bar</Typography>
-                </Stack>
-              </Stack>
-              <Typography>30,000,431,000</Typography>
-            </ListItemButton>
-            <ListItemButton divider onClick={handleClose} sx={{justifyContent: 'space-between'}}>
-              <Stack direction={'row'} spacing={4} sx={{alignSelf: 'flex-end'}}>
-                <Box><img src={'https://placehold.co/25'}/></Box>
-                <Stack direction={'row'} spacing={2}>
-                  <Typography>Foo</Typography>
-                  <Divider orientation={'vertical'} sx={{height: '60%'}}/>
-                  <Typography>Bar</Typography>
-                </Stack>
-              </Stack>
-              <Typography>30,000,431,000</Typography>
-            </ListItemButton>
-            <ListItemButton divider onClick={handleClose} sx={{justifyContent: 'space-between'}}>
-              <Stack direction={'row'} spacing={4} sx={{alignSelf: 'flex-end'}}>
-                <Box><img src={'https://placehold.co/25'}/></Box>
-                <Stack direction={'row'} spacing={2}>
-                  <Typography>Foo</Typography>
-                  <Divider orientation={'vertical'} sx={{height: '60%'}}/>
-                  <Typography>Bar</Typography>
-                </Stack>
-              </Stack>
-              <Typography>30,000,431,000</Typography>
-            </ListItemButton>
+            {[0, 1, 2, 3, 4, 5].map((i) => (
+              <ListItemButton
+                key={i}
+                divider
+                onClick={handleClose}
+                sx={{
+                  px: '4px',
+                  alignItems: 'center'
+                }}>
+                <Box mr={0.5}>
+                  <Avatar src={'/btc.jpg'} sx={{width: 25, height: 25}}/>
+                </Box>
+                <Box flexGrow={1}>
+                  <Box>
+                    <Box display={'inline-flex'}>
+                      <Typography
+                        noWrap
+                        maxWidth={'100%'}
+                      >بیت کوین  کش</Typography>
+                      <Divider orientation={'vertical'} sx={{height: 18, mx: '4px'}}/>
+                      <Typography>BTC</Typography>
+                    </Box>
+                  </Box>
+                  <Box>
+                    <Typography fontSize={'smaller'} fontWeight={'bolder'}>30,000,431,000 تومان</Typography>
+                  </Box>
+                </Box>
+              </ListItemButton>
+            ))}
           </List>
-        </MenuItem>
+        </CustomMenuItem>
       </Menu>
     </Box>
   );

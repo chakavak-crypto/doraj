@@ -1,18 +1,27 @@
-import {Box, Button, ButtonProps, Divider} from "@mui/material";
+import {Avatar, Box, Button, ButtonProps, Divider, Typography} from "@mui/material";
 
 export default function CkkButtonType1(props: ButtonProps) {
   return (
     <Button
-      sx={{}}
+      sx={{
+        display: 'flex',
+        alignItems: 'center'
+      }}
       variant={'contained'}
-      startIcon={<img src={'https://placehold.co/15'}/>}
+      disableElevation
+      fullWidth
+      startIcon={<Avatar src={'/btc.jpg'} sx={{width: 15, height: 15}}/>}
       {...props}
     >
-      <Box component={'span'}>BTC</Box>
+      <Typography
+        display={'inline-block'}
+        noWrap
+        maxWidth={'6rem'}
+        component={'span'}>بیت کوین</Typography>
       <Divider
-        sx={{mx: 2, my: 1}}
+        sx={{height: 14, mx: '2px', my: '2px'}}
         orientation={'vertical'} flexItem/>
-      <Box component={'span'}>Bitcoin</Box>
+      <Box component={'span'}>BTC</Box>
     </Button>
   );
 }

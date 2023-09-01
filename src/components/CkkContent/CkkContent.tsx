@@ -1,7 +1,5 @@
 import {ReactNode} from "react";
 import {Paper, PaperProps} from "@mui/material";
-import {styled} from "@mui/system";
-import {Style} from "util";
 
 export interface CkkContentProps extends PaperProps{
   children: ReactNode
