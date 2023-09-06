@@ -6,7 +6,7 @@ import {useTheme} from 'next-themes'
 export default function ThemeSwitch(props: CkkThemeSwitchProps) {
   const [mounted, setMounted] = useState(false)
   const {theme, setTheme} = useTheme()
-  const [checked, setChecked] = useState( theme === 'light');
+  const [checked, setChecked] = useState(theme === 'light');
 
   // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function ThemeSwitch(props: CkkThemeSwitchProps) {
       body: JSON.stringify({theme: newTheme})
     });
     setTheme(newTheme);
-  },[checked])
+  }, [checked])
 
   if (!mounted) {
     return null

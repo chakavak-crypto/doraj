@@ -7,16 +7,17 @@ import HomeIcon from "@mui/icons-material/Home";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import {ReactNode} from "react";
 
-interface OrderLayoutProps{
+interface OrderLayoutProps {
   params: {
     type: 'buy' | 'sell',
     asset?: 'string',
     volume?: number,
   }
 }
+
 export default function OrderLayout({children}: {
   children: ReactNode
-}){
+}) {
   return (
     <CkkContent>
       <CkkAlertType1 severity={'error'} variant="filled">
@@ -25,7 +26,7 @@ export default function OrderLayout({children}: {
       <Stack sx={{display: {xs: 'none', sm: 'flex'}}} direction={'row'} justifyContent={'space-between'} py={1}>
         <CkkBreadcrumbsType1>
           <Link underline="none" href="/">
-            <HomeIcon />
+            <HomeIcon/>
           </Link>
           <Typography color="text.secondary">
             ثبت سفارش
@@ -39,7 +40,7 @@ export default function OrderLayout({children}: {
             href={'/orders'}
             variant={'outlined'}
             color={'inherit'}
-            endIcon={<AssignmentIcon />}
+            endIcon={<AssignmentIcon/>}
           >تاریخچه سفارش ها</Button>
         </Box>
       </Stack>

@@ -1,4 +1,4 @@
-import type {Meta, StoryObj} from '@storybook/react';
+import type {StoryObj} from '@storybook/react';
 
 import CkkChipType1 from "./CkkChipType1";
 import Avatar from "@mui/material/Avatar";

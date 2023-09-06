@@ -1,27 +1,11 @@
 import * as React from 'react';
-import {
-  Avatar,
-  Box,
-  Button,
-  Divider,
-  Grid,
-  List,
-  ListItemButton,
-  MenuItemProps,
-  Stack,
-  Typography
-} from "@mui/material";
+import {useId, useLayoutEffect, useRef, useState} from 'react';
+import {Avatar, Box, Button, Divider, List, ListItemButton, MenuItemProps, Typography} from "@mui/material";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import TextField from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
-import SearchIcon from '@mui/icons-material/Search';
 import IconButton from '@mui/material/IconButton';
-import CkkButtonType1 from "../CkkButtonType1";
-import {useId, useLayoutEffect, useRef, useState} from "react";
-import CkkSearchField from "@/components/CkkSearchField";
 import {styled} from "@mui/material/styles";
 
 
@@ -31,7 +15,7 @@ const CustomMenuItem = styled<MenuItemProps>(MenuItem)(({theme}) => ({
     backgroundColor: 'inherit',
     cursor: 'auto'
   },
-  '&.Mui-focusVisible':{
+  '&.Mui-focusVisible': {
     background: 'inherit',
   },
   paddingLeft: 4,
@@ -95,7 +79,7 @@ export default function CkkSelectType3() {
             sx={{
               maxWidth: ['8rem', '6rem']
             }}
-            >بانک سامان</Typography>
+          >بانک سامان</Typography>
           <Box component={'span'} fontSize={'large'} mx={'2px'} fontWeight={'lighter'}>|</Box>
           <Box component={'span'}>IR04-056-***12-01</Box>
         </Box>

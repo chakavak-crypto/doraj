@@ -1,7 +1,7 @@
 import {Button, InputAdornment, TextField, TextFieldProps} from "@mui/material";
 import ContentPasteIcon from '@mui/icons-material/ContentPaste';
 
-export default function CkkTextFieldWithPasteButton(props: TextFieldProps){
+export default function CkkTextFieldWithPasteButton(props: TextFieldProps) {
   return (
     <TextField
       {...props}

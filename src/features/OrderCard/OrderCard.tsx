@@ -1,6 +1,6 @@
 'use client';
 
-import {Avatar, Box, Button, Card, CardContent, CardHeader, Grid, Stack, Tooltip, Typography} from "@mui/material";
+import {Avatar, Box, Button, CardContent, Grid, Stack, Tooltip, Typography} from "@mui/material";
 import CkkCardType3 from "@/components/CkkCardType3";
 import CkkButtonSwitch from "@/components/CkkButtonSwitch";
 import {useState} from "react";
@@ -12,7 +12,7 @@ import Link from "next/link";
 import {LtrTheme} from "@/tools/theme/ThemeRegistry";
 import DeleteIcon from '@mui/icons-material/Delete';
 
-export default function OrderCard(){
+export default function OrderCard() {
   const [value, setValue] = useState<0 | 1>(0)
   const [t] = useTranslation();
   return (
@@ -72,11 +72,11 @@ export default function OrderCard(){
               >{t('انتخاب ارز')}</Typography>
             </Grid>
             <Grid item xs={12} md={9}>
-              <CkkSelectTyp1 />
+              <CkkSelectTyp1/>
             </Grid>
           </Grid>
           <Stack direction={'row'} justifyContent={'center'} alignItems={'center'} spacing={1}>
-            <Avatar src={'/btc.jpg'} sx={{width: 25, height: 25}} />
+            <Avatar src={'/btc.jpg'} sx={{width: 25, height: 25}}/>
             <LtrTheme>
               <Typography component={'span'} fontWeight={'bolder'} noWrap>1 BTC</Typography>
             </LtrTheme>
@@ -99,7 +99,7 @@ export default function OrderCard(){
               <Button
                 size={'small'}
                 variant="text"
-                endIcon={<CreditCardIcon />}
+                endIcon={<CreditCardIcon/>}
                 component={Link}
                 href={'/wallet'}
               >واریز تومان</Button>
@@ -156,10 +156,11 @@ export default function OrderCard(){
               >&nbsp; ecd75fg8</Box>
             </Typography>
             <Typography noWrap fontSize={'smaller'}>3,450,000 تومان</Typography>
-            <Button size={'small'} color={'error'} endIcon={<DeleteIcon />}>حذف</Button>
+            <Button size={'small'} color={'error'} endIcon={<DeleteIcon/>}>حذف</Button>
           </Stack>
           <Stack direction={'row'} justifyContent={'end'}>
-            <Typography color={'text.secondary'} sx={{textDecoration: 'line-through'}}>120,000,431,000 تومان</Typography>
+            <Typography color={'text.secondary'} sx={{textDecoration: 'line-through'}}>120,000,431,000
+              تومان</Typography>
           </Stack>
           <Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'}>
             <Typography fontWeight={'bold'} color={'text.secondary'}>جمع کل پرداختی</Typography>

@@ -2,7 +2,10 @@
 
 import {Card, CardProps} from "@mui/material";
 import {styled} from "@mui/system";
-export interface CkkCardType3Props extends CardProps{}
+
+export interface CkkCardType3Props extends CardProps {
+}
+
 const StyledCard = styled<CkkCardType3Props>(Card)(({theme}) => {
   let backgroundImage = theme.palette.mode === 'dark' ?
     `linear-gradient(45deg, ${theme.palette.background.default}, rgba(255, 255, 255, 0.12))`
@@ -18,7 +21,7 @@ const StyledCard = styled<CkkCardType3Props>(Card)(({theme}) => {
     backgroundImage: backgroundImage
   };
 });
-export default function CkkCardType3(props: CardProps){
+export default function CkkCardType3(props: CardProps) {
   return (
     <StyledCard
       {...props}

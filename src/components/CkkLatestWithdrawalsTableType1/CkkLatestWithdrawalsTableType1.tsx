@@ -2,13 +2,10 @@
 import {createTheme, ThemeProvider, useTheme} from "@mui/material/styles";
 import MUIDataTable, {MUIDataTableColumn, MUIDataTableOptions} from "mui-datatables";
 import * as React from "react";
-import {Avatar, Box, Button, IconButton, Stack, TableCell, TableRow, Typography, useMediaQuery} from "@mui/material";
 import {useMemo} from "react";
-import ExpandCircleDownOutlinedIcon from "@mui/icons-material/ExpandCircleDownOutlined";
+import {Avatar, Box, Button, IconButton, Stack, TableCell, TableRow, Typography, useMediaQuery} from "@mui/material";
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import CkkChipType1 from "@/components/CkkChipType1";
 import CkkChipType2 from "@/components/CkkChipType2";
-import Link from "next/link";
 
 
 const columns: MUIDataTableColumn[] = [
@@ -56,7 +53,7 @@ const columns: MUIDataTableColumn[] = [
       customBodyRender: (value, tableMeta, updateValue) => {
         return (
           <Stack direction={'row'} spacing={0.5} alignItems={'center'} justifyContent={'center'}>
-            <Avatar src={'/btc.jpg'} sx={{width: 25, height: 25}} />
+            <Avatar src={'/btc.jpg'} sx={{width: 25, height: 25}}/>
             <Box>
               <Typography fontWeight={'bolder'} noWrap>بیت کوین</Typography>
               <Typography color={'text.secondary'} fontSize={'smaller'}>BTC</Typography>
@@ -109,7 +106,9 @@ const columns: MUIDataTableColumn[] = [
       customBodyRender: (value, tableMeta, updateValue) => {
         return (
           <Stack alignItems={'center'}>
-            <Typography fontWeight={'bolder'} noWrap>abc***c34 <IconButton size={'small'} color={'primary'}><ContentCopyIcon fontSize={'small'} /></IconButton></Typography>
+            <Typography fontWeight={'bolder'} noWrap>abc***c34 <IconButton size={'small'}
+                                                                           color={'primary'}><ContentCopyIcon
+              fontSize={'small'}/></IconButton></Typography>
           </Stack>
         );
       }
@@ -124,7 +123,7 @@ const columns: MUIDataTableColumn[] = [
       display: true,
       customBodyRender: (value, tableMeta, updateValue) => {
         return (
-          <CkkChipType2 label={'موفق'} color={'success'} />
+          <CkkChipType2 label={'موفق'} color={'success'}/>
         );
       }
     }
@@ -165,7 +164,7 @@ const options: MUIDataTableOptions = {
     const colSpan = rowData.length + 1;
     return (
       <TableRow>
-        <TableCell colSpan={colSpan-2} sx={{textAlign: 'left'}}>
+        <TableCell colSpan={colSpan - 2} sx={{textAlign: 'left'}}>
           <Typography>
             <Box component={'span'} color={'text.secondary'}>آدرس:</Box>
             <Box component={'span'} pl={1} fontFamily={'var(--roboto)'}>bc1qcmxexuvtp3jj0t9sxe2ry7gc6sfdndfkkkfhq0</Box>
@@ -191,7 +190,7 @@ const options: MUIDataTableOptions = {
 const styles = {
   components: {
     MUIDataTable: {
-      styleOverrides:{
+      styleOverrides: {
         caption: {
           display: "none!important"
         },
@@ -223,27 +222,27 @@ const styles = {
   }
 };
 
-export default function CkkLatestWithdrawalsTableType1(){
+export default function CkkLatestWithdrawalsTableType1() {
   const theme = useTheme();
   const getMuiTheme = () => createTheme(styles as any, theme)
   const isSmDown = useMediaQuery(theme.breakpoints.down('md'));
   const isXs = useMediaQuery(theme.breakpoints.only('xs'));
   const dynamicColumns = useMemo(() => {
-    return  columns.map((column) => {
-      if(column.name === 'value'){
+    return columns.map((column) => {
+      if (column.name === 'value') {
         if (column.options) {
-          if(isXs){
+          if (isXs) {
             column.options['display'] = 'excluded';
-          }else{
+          } else {
             column.options['display'] = true;
           }
         }
       }
-      if(column.name === 'available'){
+      if (column.name === 'available') {
         if (column.options) {
-          if(isSmDown){
+          if (isSmDown) {
             column.options['display'] = 'excluded';
-          }else{
+          } else {
             column.options['display'] = true;
           }
         }

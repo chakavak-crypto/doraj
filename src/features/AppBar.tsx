@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react';
-import {default as AppBar, AppBarProps as MuiAppBarProps}  from '@mui/material/AppBar';
+import {AppBarProps as MuiAppBarProps, default as AppBar} from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -25,7 +25,7 @@ import ThemeSwitch from "@/features/ThemeSwitch";
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-export interface AppBarProps extends MuiAppBarProps{
+export interface AppBarProps extends MuiAppBarProps {
   onOpen?: (event: React.MouseEvent<HTMLElement>) => void
 }
 
@@ -122,7 +122,7 @@ function ResponsiveAppBar(props: AppBarProps) {
             )}
             {matchesMdUp && (
               <Box>
-                <CkkThemeOptionsPopper themeSwitch={<ThemeSwitch size={'small'} />}/>
+                <CkkThemeOptionsPopper themeSwitch={<ThemeSwitch size={'small'}/>}/>
               </Box>
             )}
           </Box>

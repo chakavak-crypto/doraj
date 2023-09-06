@@ -1,16 +1,10 @@
 'use client';
 
-import {Box, Button, Card, Grid, InputAdornment, Stack, TextField, Typography} from "@mui/material";
-import CkkSelectTyp1 from "@/components/CkkSelectTyp1";
-import CkkTextFieldWithPasteButton from "@/components/CkkTextFieldWithPasteButton";
+import {Box, Button, Grid, InputAdornment, Stack, TextField, Typography} from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import CkkSelectType2 from "@/components/CkkSelectTyp2/CkkSelectType2";
-import ContentPasteIcon from "@mui/icons-material/ContentPaste";
 import CkkSelectType3 from "@/components/CkkSelectType3";
-import CkkCurrencyFieldType1 from "@/components/CkkCurrencyFieldType1";
 
-export default function IrtWithdrawalCard(){
+export default function IrtWithdrawalCard() {
   return (
     <Box>
       <Stack spacing={2}>
@@ -58,7 +52,7 @@ export default function IrtWithdrawalCard(){
             >انتخاب شبا</Typography>
           </Grid>
           <Grid item xs={12} md={9}>
-            <CkkSelectType3 />
+            <CkkSelectType3/>
           </Grid>
         </Grid>
         <Box>
@@ -74,7 +68,7 @@ export default function IrtWithdrawalCard(){
             size={'small'}
             helperText={'حداقل مقدار برداشت 100,000 تومان می باشد'}
             sx={{
-              '& .MuiInputBase-root':{
+              '& .MuiInputBase-root': {
                 paddingRight: '4px'
               }
             }}

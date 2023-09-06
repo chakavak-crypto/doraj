@@ -3,12 +3,12 @@ import {CssBaseline, Direction, GlobalStyles, responsiveFontSizes, ThemeProvider
 import {AllowedTheme, darkTheme, globalStyles, lightTheme} from "./theme";
 import {FC, useEffect, useState} from "react";
 
-const MUIThemeProvider: FC<{ children: React.ReactNode, defaultTheme?:  AllowedTheme, dir?: Direction}> = ({
-                                                               children,
-                                                                defaultTheme,
-                                                                dir
-                                                             }) => {
-  const { resolvedTheme } = useTheme();
+const MUIThemeProvider: FC<{ children: React.ReactNode, defaultTheme?: AllowedTheme, dir?: Direction }> = ({
+                                                                                                             children,
+                                                                                                             defaultTheme,
+                                                                                                             dir
+                                                                                                           }) => {
+  const {resolvedTheme} = useTheme();
   const [currentTheme, setCurrentTheme] = useState(() => {
     return defaultTheme === 'light' ? lightTheme : darkTheme
   });
@@ -23,8 +23,8 @@ const MUIThemeProvider: FC<{ children: React.ReactNode, defaultTheme?:  AllowedT
 
   return (
     <ThemeProvider theme={currentTheme}>
-      <CssBaseline />
-      <GlobalStyles styles={globalStyles} />
+      <CssBaseline/>
+      <GlobalStyles styles={globalStyles}/>
       {children}
     </ThemeProvider>
   );

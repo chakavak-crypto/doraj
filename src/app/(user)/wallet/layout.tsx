@@ -9,7 +9,7 @@ import {ReactNode} from "react";
 
 export default function WalletLayout({children}: {
   children: ReactNode
-}){
+}) {
   return (
     <CkkContent>
       <CkkAlertType1 severity={'error'} variant="filled">
@@ -18,7 +18,7 @@ export default function WalletLayout({children}: {
       <Stack sx={{display: {xs: 'none', sm: 'flex'}}} direction={'row'} justifyContent={'space-between'} py={1}>
         <CkkBreadcrumbsType1>
           <Link underline="none" href="/">
-            <HomeIcon />
+            <HomeIcon/>
           </Link>
           <Typography color="text.primary">
             کیف پول
@@ -31,7 +31,7 @@ export default function WalletLayout({children}: {
             href={'/deposit'}
             variant={'contained'}
             color={'primary'}
-            endIcon={<AssignmentIcon />}
+            endIcon={<AssignmentIcon/>}
           >واریز</Button>
           <Button
             size={'small'}
@@ -39,7 +39,7 @@ export default function WalletLayout({children}: {
             href={'/withdraw'}
             variant={'outlined'}
             color={'inherit'}
-            endIcon={<AssignmentIcon />}
+            endIcon={<AssignmentIcon/>}
           >برداشت</Button>
           <Button
             size={'small'}
@@ -47,7 +47,7 @@ export default function WalletLayout({children}: {
             href={'/transactions'}
             variant={'outlined'}
             color={'inherit'}
-            endIcon={<AssignmentIcon />}
+            endIcon={<AssignmentIcon/>}
           >تاریخچه تراکنش ها</Button>
         </Stack>
       </Stack>

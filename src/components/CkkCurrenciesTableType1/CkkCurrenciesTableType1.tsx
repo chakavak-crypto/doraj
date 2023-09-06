@@ -3,14 +3,50 @@ import {createTheme, ThemeProvider, useTheme} from "@mui/material/styles";
 import MUIDataTable, {MUIDataTableColumn, MUIDataTableOptions} from "mui-datatables";
 import * as React from "react";
 import {useMemo} from "react";
-import {Box, Button, Stack, Typography, useMediaQuery} from "@mui/material";
-import CkkChipType2 from "@/components/CkkChipType2";
+import {Avatar, Box, Button, IconButton, Stack, Typography, useMediaQuery} from "@mui/material";
+import ExpandCircleDownOutlinedIcon from "@mui/icons-material/ExpandCircleDownOutlined";
 
+
+const ActionsButtons = () => {
+  const theme = useTheme();
+  const isMdDown = useMediaQuery(theme.breakpoints.down('md'))
+
+  return isMdDown ? (
+    <IconButton color={'inherit'}><ExpandCircleDownOutlinedIcon sx={{transform: 'rotate(90deg)'}}/></IconButton>
+  ) : (
+    <Stack direction={'row'} spacing={0.5} alignItems={'center'} justifyContent={'end'}>
+      <Button size={'small'} variant={'contained'}>واریز</Button>
+      <Button size={'small'} variant={'outlined'} color={'secondary'}>برداشت</Button>
+      <Button size={'small'} color={'success'}>خرید</Button>
+      <Button size={'small'} color={'error'}>فروش</Button>
+    </Stack>
+  )
+}
 
 const columns: MUIDataTableColumn[] = [
   {
-    name: 'created_at',
-    label: 'تاریخ و زمان',
+    name: 'currency',
+    label: 'رمزارز',
+    options: {
+      filter: false,
+      sort: false,
+      display: true,
+      customBodyRender: (value, tableMeta, updateValue) => {
+        return (
+          <Stack direction={'row'} spacing={0.5} alignItems={'center'} justifyContent={'center'}>
+            <Avatar src={'/btc.jpg'} sx={{width: 25, height: 25}}/>
+            <Box>
+              <Typography fontWeight={'bolder'} noWrap>بیت کوین</Typography>
+              <Typography color={'text.secondary'} fontSize={'smaller'}>BTC</Typography>
+            </Box>
+          </Stack>
+        );
+      }
+    }
+  },
+  {
+    name: 'buy',
+    label: 'قیمت خرید',
     options: {
       filter: false,
       sort: false,
@@ -18,8 +54,8 @@ const columns: MUIDataTableColumn[] = [
         return (
           <Stack direction={'row'} spacing={0.5} alignItems={'center'} justifyContent={'center'}>
             <Box>
-              <Typography fontWeight={'bolder'} noWrap>1402/02/31</Typography>
-              <Typography color={'text.secondary'}>15:06</Typography>
+              <Typography fontWeight={'bolder'} noWrap>14,871,580,100</Typography>
+              <Typography color={'text.secondary'} fontSize={'smaller'}>تومان</Typography>
             </Box>
           </Stack>
         );
@@ -27,15 +63,18 @@ const columns: MUIDataTableColumn[] = [
     }
   },
   {
-    name: 'withdrawal_id',
-    label: 'شماره تراکنش',
+    name: 'sell',
+    label: 'قیمت فروش',
     options: {
       filter: false,
       sort: false,
       customBodyRender: (value, tableMeta, updateValue) => {
         return (
-          <Stack>
-            <Typography fontWeight={'bolder'} noWrap>459871023</Typography>
+          <Stack direction={'row'} spacing={0.5} alignItems={'center'} justifyContent={'center'}>
+            <Box>
+              <Typography fontWeight={'bolder'} noWrap>14,871,580,100</Typography>
+              <Typography color={'text.secondary'} fontSize={'smaller'}>تومان</Typography>
+            </Box>
           </Stack>
         );
       },
@@ -43,24 +82,8 @@ const columns: MUIDataTableColumn[] = [
     }
   },
   {
-    name: 'sheba',
-    label: 'شماره شبا',
-    options: {
-      filter: false,
-      sort: false,
-      display: true,
-      customBodyRender: (value, tableMeta, updateValue) => {
-        return (
-          <Stack direction={'row'} spacing={0.5} alignItems={'center'} justifyContent={'center'}>
-            <Typography fontWeight={'bolder'} noWrap>IR10-452-10421-4341-1031</Typography>
-          </Stack>
-        );
-      }
-    }
-  },
-  {
-    name: 'amount',
-    label: 'مقدار',
+    name: 'changes_24h',
+    label: 'تغییرات 24h',
     options: {
       filter: false,
       sort: false,
@@ -68,39 +91,8 @@ const columns: MUIDataTableColumn[] = [
       customBodyRender: (value, tableMeta, updateValue) => {
         return (
           <Stack>
-            <Typography fontWeight={'bolder'} noWrap>1,500,000</Typography>
-            <Typography color={'text.secondary'} fontSize={'smaller'}>تومان</Typography>
+            <Typography fontWeight={'bolder'} color={'success.main'} noWrap>+0.012%</Typography>
           </Stack>
-        );
-      }
-    }
-  },
-  {
-    name: 'tracking_id',
-    label: 'کد پیگیری',
-    options: {
-      filter: false,
-      sort: false,
-      display: true,
-      customBodyRender: (value, tableMeta, updateValue) => {
-        return (
-          <Stack alignItems={'center'}>
-            <Typography fontWeight={'bolder'} noWrap>45312359812</Typography>
-          </Stack>
-        );
-      }
-    }
-  },
-  {
-    name: 'status',
-    label: 'وضعیت',
-    options: {
-      filter: false,
-      sort: false,
-      display: true,
-      customBodyRender: (value, tableMeta, updateValue) => {
-        return (
-          <CkkChipType2 label={'موفق'} color={'success'}/>
         );
       }
     }
@@ -111,7 +103,7 @@ const columns: MUIDataTableColumn[] = [
       filter: false,
       sort: false,
       customBodyRender: (value, tableMeta, updateValue) => {
-        return <Button>تماس با پشتیبانی</Button>
+        return <ActionsButtons/>
       },
       customHeadLabelRender: (columnMeta) => {
         return '';
@@ -191,7 +183,7 @@ const styles = {
   }
 };
 
-export default function CkkLatestWithdrawalsTableType2() {
+export default function CkkCurrenciesTableType1() {
   const theme = useTheme();
   const getMuiTheme = () => createTheme(styles as any, theme)
   const isSmDown = useMediaQuery(theme.breakpoints.down('md'));

@@ -1,11 +1,11 @@
 'use client';
 
 import * as React from 'react';
+import {useMemo} from 'react';
 import MUIDataTable, {MUIDataTableColumn, MUIDataTableOptions} from "mui-datatables";
 import {createTheme, ThemeProvider, useTheme} from "@mui/material/styles";
 import {Avatar, Box, Button, IconButton, Stack, Typography, useMediaQuery} from "@mui/material";
 import ExpandCircleDownOutlinedIcon from "@mui/icons-material/ExpandCircleDownOutlined";
-import {useMemo} from "react";
 
 
 const ActionsButtons = () => {
@@ -13,7 +13,7 @@ const ActionsButtons = () => {
   const isMdDown = useMediaQuery(theme.breakpoints.down('md'))
 
   return isMdDown ? (
-    <IconButton color={'inherit'}><ExpandCircleDownOutlinedIcon sx={{transform: 'rotate(90deg)'}} /></IconButton>
+    <IconButton color={'inherit'}><ExpandCircleDownOutlinedIcon sx={{transform: 'rotate(90deg)'}}/></IconButton>
   ) : (
     <Stack direction={'row'} spacing={0.5} alignItems={'center'} justifyContent={'end'}>
       <Button size={'small'} variant={'contained'}>واریز</Button>
@@ -35,7 +35,7 @@ const columns: MUIDataTableColumn[] = [
       customBodyRender: (value, tableMeta, updateValue) => {
         return (
           <Stack direction={'row'} spacing={0.5} alignItems={'center'}>
-            <Avatar src={'/btc.jpg'} sx={{width: 25, height: 25}} />
+            <Avatar src={'/btc.jpg'} sx={{width: 25, height: 25}}/>
             <Box>
               <Typography fontWeight={'bolder'} noWrap>بیت کوین</Typography>
               <Typography color={'text.secondary'} fontSize={'smaller'}>BTC</Typography>
@@ -102,7 +102,7 @@ const columns: MUIDataTableColumn[] = [
       filter: false,
       sort: false,
       customBodyRender: (value, tableMeta, updateValue) => {
-        return <ActionsButtons />
+        return <ActionsButtons/>
       },
       customHeadLabelRender: (columnMeta) => {
         return '';
@@ -150,7 +150,7 @@ const options: MUIDataTableOptions = {
 const styles = {
   components: {
     MUIDataTable: {
-      styleOverrides:{
+      styleOverrides: {
         caption: {
           display: "none!important"
         },
@@ -180,27 +180,27 @@ const styles = {
   }
 };
 
-export default function CkkAssetsTableType1(){
+export default function CkkAssetsTableType1() {
   const theme = useTheme();
   const getMuiTheme = () => createTheme(styles as any, theme)
   const isSmDown = useMediaQuery(theme.breakpoints.down('md'));
   const isXs = useMediaQuery(theme.breakpoints.only('xs'));
   const dynamicColumns = useMemo(() => {
-    return  columns.map((column) => {
-      if(column.name === 'value'){
+    return columns.map((column) => {
+      if (column.name === 'value') {
         if (column.options) {
-          if(isXs){
+          if (isXs) {
             column.options['display'] = 'excluded';
-          }else{
+          } else {
             column.options['display'] = true;
           }
         }
       }
-      if(column.name === 'available'){
+      if (column.name === 'available') {
         if (column.options) {
-          if(isSmDown){
+          if (isSmDown) {
             column.options['display'] = 'excluded';
-          }else{
+          } else {
             column.options['display'] = true;
           }
         }

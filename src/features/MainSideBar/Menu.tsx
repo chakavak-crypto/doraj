@@ -33,6 +33,7 @@ export default function Menu(props: MenuProps) {
   const handleClick = () => {
     setOpen(!open);
   };
+
   return (
     <ListItem selected={selected !== undefined && selected} disablePadding sx={{
       flexDirection: 'column',

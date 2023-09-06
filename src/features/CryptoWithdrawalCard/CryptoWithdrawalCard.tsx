@@ -1,14 +1,13 @@
 'use client';
 
-import {Box, Button, Card, Grid, InputAdornment, Stack, TextField, Typography} from "@mui/material";
+import {Box, Button, Grid, InputAdornment, Stack, TextField, Typography} from "@mui/material";
 import CkkSelectTyp1 from "@/components/CkkSelectTyp1";
 import CkkTextFieldWithPasteButton from "@/components/CkkTextFieldWithPasteButton";
 import AddIcon from '@mui/icons-material/Add';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import CkkSelectType2 from "@/components/CkkSelectTyp2/CkkSelectType2";
-import ContentPasteIcon from "@mui/icons-material/ContentPaste";
 
-export default function CryptoWithdrawalCard(){
+export default function CryptoWithdrawalCard() {
   return (
     <Box>
       <Stack spacing={2}>
@@ -44,7 +43,7 @@ export default function CryptoWithdrawalCard(){
             >انتخاب ارز</Typography>
           </Grid>
           <Grid item xs={12} md={9}>
-            <CkkSelectTyp1 />
+            <CkkSelectTyp1/>
           </Grid>
         </Grid>
         <Grid
@@ -79,7 +78,7 @@ export default function CryptoWithdrawalCard(){
             >شبکه برداشت</Typography>
           </Grid>
           <Grid item xs={12} md={9}>
-            <CkkSelectType2 />
+            <CkkSelectType2/>
           </Grid>
         </Grid>
         <Box>
@@ -98,7 +97,7 @@ export default function CryptoWithdrawalCard(){
           <CkkTextFieldWithPasteButton
             fullWidth
             sx={{
-              '& .MuiInputBase-root':{
+              '& .MuiInputBase-root': {
                 paddingRight: '4px'
               }
             }}
@@ -111,8 +110,8 @@ export default function CryptoWithdrawalCard(){
               sx={{
                 fontWeight: 'bold'
               }}
-              endIcon={<KeyboardArrowDownIcon />}
-              >انتخاب آدرس ذخیره شده</Button>
+              endIcon={<KeyboardArrowDownIcon/>}
+            >انتخاب آدرس ذخیره شده</Button>
           </Box>
         </Box>
         <Box>
@@ -122,7 +121,7 @@ export default function CryptoWithdrawalCard(){
           <CkkTextFieldWithPasteButton
             fullWidth
             sx={{
-              '& .MuiInputBase-root':{
+              '& .MuiInputBase-root': {
                 paddingRight: '4px'
               }
             }}
@@ -144,7 +143,7 @@ export default function CryptoWithdrawalCard(){
             size={'small'}
             helperText={'حداقل مقدار برداشت 0.001 BTC می باشد'}
             sx={{
-              '& .MuiInputBase-root':{
+              '& .MuiInputBase-root': {
                 paddingRight: '4px'
               }
             }}

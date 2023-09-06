@@ -1,7 +1,7 @@
 import {ReactNode} from "react";
 import {Paper, PaperProps} from "@mui/material";
 
-export interface CkkContentProps extends PaperProps{
+export interface CkkContentProps extends PaperProps {
   children: ReactNode
 }
 
@@ -16,7 +16,7 @@ const styles = {
   px: 1.5,
   overflowY: 'scroll',
 }
-export default function CkkContent(props: CkkContentProps){
+export default function CkkContent(props: CkkContentProps) {
   return (
     <Paper
       sx={styles}

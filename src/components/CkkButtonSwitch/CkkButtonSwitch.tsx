@@ -1,5 +1,6 @@
 import {Box, Button, ButtonProps, Stack, StackProps} from "@mui/material";
-interface CkkButtonSwitchProps{
+
+interface CkkButtonSwitchProps {
   value: 0 | 1,
   firstTitle: string,
   secondTitle: string,
@@ -8,6 +9,7 @@ interface CkkButtonSwitchProps{
   secondButtonProps?: Omit<ButtonProps, 'size' | 'fullWidth' | 'variant' | 'onClick'>,
   containerProps?: Omit<StackProps, 'direction' | 'spacing'>
 }
+
 export default function CkkButtonSwitch(props: CkkButtonSwitchProps) {
   const {
     value,

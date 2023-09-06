@@ -1,11 +1,8 @@
 import * as React from 'react';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
-import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import DirectionsIcon from '@mui/icons-material/Directions';
 
 export default function CkkSearchField() {
   return (
@@ -21,16 +18,16 @@ export default function CkkSearchField() {
         borderColor: 'divider',
       }}
     >
-      <IconButton disabled size={'small'} type="button"  aria-label="search">
-        <SearchIcon />
+      <IconButton disabled size={'small'} type="button" aria-label="search">
+        <SearchIcon/>
       </IconButton>
       <InputBase
-        sx={{ ml: 1, flex: 1, p: 0 }}
+        sx={{ml: 1, flex: 1, p: 0}}
         fullWidth
         size={'small'}
         variant="outlined"
         placeholder={'جستجو'}
-        inputProps={{ 'aria-label': 'search currencies' }}
+        inputProps={{'aria-label': 'search currencies'}}
       />
     </Paper>
   );

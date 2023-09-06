@@ -1,17 +1,6 @@
 "use client";
 
-import {
-  Box,
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  Link,
-  Stack,
-  TextField,
-  Typography
-} from "@mui/material";
+import {Box, Button, CardActions, CardContent, CardHeader, Link, Stack, Typography} from "@mui/material";
 import PasswordInput from "@/components/PasswordInput";
 import React, {useState} from "react";
 import {default as NextLink} from 'next/link';
@@ -19,7 +8,6 @@ import CkkButtonSwitch from "@/components/CkkButtonSwitch";
 import CkkMobileField from "@/components/CkkMobileField";
 import CkkEmailField from "@/components/CkkEmailField";
 import {useTranslation} from "@/app/i18n/client";
-import translate from "@/tools/translation";
 import CkkCardType3 from "@/components/CkkCardType3";
 
 
@@ -90,7 +78,8 @@ export default function LoginCard() {
           <Box>
             <Stack direction={'row'} justifyContent={'space-between'}>
               <Typography>{t('password')}</Typography>
-              <Link fontSize={'smaller'} component={NextLink} underline={'none'} href={'/forgot'}>{t('i_forget_my_password')}</Link>
+              <Link fontSize={'smaller'} component={NextLink} underline={'none'}
+                    href={'/forgot'}>{t('i_forget_my_password')}</Link>
             </Stack>
             <PasswordInput
               fullWidth

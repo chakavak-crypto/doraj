@@ -1,3 +1,3 @@
-export default function SellCryptoCard(){
+export default function SellCryptoCard() {
 
 }

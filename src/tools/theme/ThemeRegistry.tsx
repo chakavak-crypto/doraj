@@ -14,7 +14,10 @@ export function LtrTheme({children}: { children: React.ReactNode }) {
   );
 }
 
-export default function ThemeRegistry({children, defaultTheme}: { children: React.ReactNode, defaultTheme?:  AllowedTheme }) {
+export default function ThemeRegistry({
+                                        children,
+                                        defaultTheme
+                                      }: { children: React.ReactNode, defaultTheme?: AllowedTheme }) {
   return (
     <PreferredThemeProvider disableTransitionOnChange>
       <NextAppDirEmotionCacheProvider options={{key: 'rabsana'}}>

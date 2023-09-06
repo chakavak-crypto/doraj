@@ -1,16 +1,19 @@
 import * as React from 'react';
 import CkkContent from "@/components/CkkContent/CkkContent";
 import {
-  Avatar, Box, Button,
+  Box,
+  Button,
   Card,
   CardContent,
-  CardHeader, Divider,
+  CardHeader,
+  Divider,
   Grid,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
-  Stack, Typography
+  Stack,
+  Typography
 } from "@mui/material";
 import CircleIcon from '@mui/icons-material/Circle';
 import WarningIcon from '@mui/icons-material/Warning';
@@ -18,13 +21,13 @@ import CryptoWithdrawalCard from "@/features/CryptoWithdrawalCard";
 import RefreshIcon from '@mui/icons-material/Refresh';
 import CkkLatestWithdrawalsTableType1 from "@/components/CkkLatestWithdrawalsTableType1";
 
-export default function CryptoWithdrawalPage(){
+export default function CryptoWithdrawalPage() {
 
   return (
     <Grid container spacing={1}>
       <Grid item xs={12} sm={6} xl={4} lg={5}>
         <CkkContent>
-          <CryptoWithdrawalCard />
+          <CryptoWithdrawalCard/>
         </CkkContent>
       </Grid>
       <Grid item xs={12} sm={6} xl={4}>
@@ -38,7 +41,7 @@ export default function CryptoWithdrawalPage(){
             disableTypography
             title={'لطفا پیش از برداشت رمزارز، توضیحات زیر را به دقیق مطالعه نمایید'}
             avatar={
-              <WarningIcon color={'warning'} />
+              <WarningIcon color={'warning'}/>
             }
           />
           <CardContent>
@@ -46,9 +49,10 @@ export default function CryptoWithdrawalPage(){
               {[0, 1, 2, 3].map((i) => (
                 <ListItem key={i} disablePadding>
                   <ListItemIcon sx={{minWidth: '20px'}}>
-                    <CircleIcon color={'error'} sx={{fontSize: 10}} />
+                    <CircleIcon color={'error'} sx={{fontSize: 10}}/>
                   </ListItemIcon>
-                  <ListItemText primary={'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ،و با استفاده از طراحان گرافیک است'}/>
+                  <ListItemText
+                    primary={'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ،و با استفاده از طراحان گرافیک است'}/>
                 </ListItem>
               ))}
             </List>
@@ -71,13 +75,13 @@ export default function CryptoWithdrawalPage(){
                 size={'small'}
                 variant={'outlined'}
                 color={'inherit'}
-                startIcon={<RefreshIcon />}
+                startIcon={<RefreshIcon/>}
               >بروزرسانی</Button>
             </Stack>
           </Stack>
-          <Divider sx={{mx: -1.5, my: 1.5}} />
+          <Divider sx={{mx: -1.5, my: 1.5}}/>
           <Box sx={{mx: -1.5}}>
-            <CkkLatestWithdrawalsTableType1 />
+            <CkkLatestWithdrawalsTableType1/>
           </Box>
         </CkkContent>
       </Grid>

@@ -1,4 +1,4 @@
-import type {Meta, StoryObj} from '@storybook/react';
+import type {StoryObj} from '@storybook/react';
 
 import CkkChipType2 from "./CkkChipType2";
 

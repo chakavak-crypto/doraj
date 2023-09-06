@@ -5,7 +5,6 @@ export type AllowedTheme = NonNullable<PaletteOptions["mode"]>;
 export const DEFAULT_THEME: AllowedTheme = "dark";
 
 
-
 const themeOptions: ThemeOptions = {
   direction: 'rtl',
   typography: {
