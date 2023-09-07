@@ -5,6 +5,8 @@ import * as React from "react";
 import {useMemo} from "react";
 import {Avatar, Box, Button, IconButton, Stack, Typography, useMediaQuery} from "@mui/material";
 import ExpandCircleDownOutlinedIcon from "@mui/icons-material/ExpandCircleDownOutlined";
+import axios from "axios";
+import {useQuery} from "@tanstack/react-query";
 
 
 const ActionsButtons = () => {
@@ -188,6 +190,7 @@ export default function CkkCurrenciesTableType1() {
   const getMuiTheme = () => createTheme(styles as any, theme)
   const isSmDown = useMediaQuery(theme.breakpoints.down('md'));
   const isXs = useMediaQuery(theme.breakpoints.only('xs'));
+
   const dynamicColumns = useMemo(() => {
     return columns.map((column) => {
       if (column.name === 'value') {

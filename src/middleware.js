@@ -11,7 +11,7 @@ export const config = {
 
 const cookieName = 'rabsana-lang'
 
-export function middleware(req) {
+export async function middleware(req) {
     let lng
     if (req.cookies.has(cookieName)) lng = acceptLanguage.get(req.cookies.get(cookieName).value)
     //if (!lng) lng = acceptLanguage.get(req.headers.get('Accept-Language'))

@@ -10,6 +10,7 @@ import FooterCard from "@/components/FooterCard";
 import StoreRegistry from "@/tools/redux/StoreRegistry";
 import LogoutModal from "@/features/LogoutModal";
 import {IRANSansX, IRANSansXFaNum, roboto} from "@/app/fonts";
+import QueryRegistry from "@/tools/query/QueryRegistry";
 
 export const metadata = {
   title: 'Next.js App Router + Material UI v5',
@@ -32,27 +33,29 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
       className={`${IRANSansX.variable} ${IRANSansXFaNum.variable} ${roboto.variable}`}
     >
     <body style={{height: '100vh'}}>
-    <ThemeRegistry defaultTheme={defaultTheme}>
-      <StoreRegistry>
-        <AppBar/>
-        <MainSideBar width={DRAWER_WIDTH} open={false}/>
-        <Box
-          component="main"
-          sx={{
-            bgcolor: 'background.default',
-            ml: ['0', '0', `${DRAWER_WIDTH}px`],
-            pt: ['74px'],
-            pb: ['80px', '48px'],
-            px: [1, 2],
-            height: '100%'
-          }}
-        >
-          {children}
-        </Box>
-        <FooterCard/>
-        <LogoutModal/>
-      </StoreRegistry>
-    </ThemeRegistry>
+    <QueryRegistry>
+      <ThemeRegistry defaultTheme={defaultTheme}>
+        <StoreRegistry>
+          <AppBar/>
+          <MainSideBar width={DRAWER_WIDTH} open={false}/>
+          <Box
+            component="main"
+            sx={{
+              bgcolor: 'background.default',
+              ml: ['0', '0', `${DRAWER_WIDTH}px`],
+              pt: ['74px'],
+              pb: ['80px', '48px'],
+              px: [1, 2],
+              height: '100%'
+            }}
+          >
+            {children}
+          </Box>
+          <FooterCard/>
+          <LogoutModal/>
+        </StoreRegistry>
+      </ThemeRegistry>
+    </QueryRegistry>
     </body>
     </html>
   );
