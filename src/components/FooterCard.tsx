@@ -1,5 +1,6 @@
 import {Card, CardContent, CardProps, Grid, Link, Typography} from "@mui/material";
 import * as React from "react";
+import {default as NextLink} from 'next/link';
 
 export default function FooterCard(props: CardProps) {
   return (
@@ -23,13 +24,13 @@ export default function FooterCard(props: CardProps) {
           <Grid item sx={{minWidth: '300px'}}>
             <Grid container sx={{justifyContent: {xs: 'space-around', sm: 'space-between'}}}>
               <Grid item>
-                <Link color={'text.secondary'} underline={'none'} href={'/contact'}>تماس با ما</Link>
+                <Link component={NextLink} color={'text.secondary'} underline={'none'} href={'/contact'}>تماس با ما</Link>
               </Grid>
               <Grid item>
-                <Link color={'text.secondary'} underline={'none'} href={'/terms'}>شرایط خدمات</Link>
+                <Link component={NextLink} color={'text.secondary'} underline={'none'} href={'/terms'}>شرایط خدمات</Link>
               </Grid>
               <Grid item>
-                <Link color={'text.secondary'} underline={'none'} href={'/privacy'}>حریم خصوصی</Link>
+                <Link component={NextLink} color={'text.secondary'} underline={'none'} href={'/privacy'}>حریم خصوصی</Link>
               </Grid>
             </Grid>
           </Grid>

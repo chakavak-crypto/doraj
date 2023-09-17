@@ -5,8 +5,6 @@ import * as React from "react";
 import {useMemo} from "react";
 import {Avatar, Box, Button, IconButton, Stack, Typography, useMediaQuery} from "@mui/material";
 import ExpandCircleDownOutlinedIcon from "@mui/icons-material/ExpandCircleDownOutlined";
-import axios from "axios";
-import {useQuery} from "@tanstack/react-query";
 
 
 const ActionsButtons = () => {

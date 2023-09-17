@@ -5,7 +5,6 @@ import {dir} from 'i18next';
 import {cookies} from 'next/headers'
 import {fallbackLng} from '@/app/i18n/settings'
 import FooterCard from "@/components/FooterCard";
-import StoreRegistry from "@/tools/redux/StoreRegistry";
 import SimpleAppBar from "@/features/SimpleAppBar";
 import {IRANSansX, IRANSansXFaNum, roboto} from '@/app/fonts';
 import QueryRegistry from "@/tools/query/QueryRegistry";
@@ -14,9 +13,6 @@ export const metadata = {
   title: 'Next.js App Router + Material UI v5',
   description: 'Next.js App Router + Material UI v5',
 };
-
-const DRAWER_WIDTH = 240;
-
 
 export default function AuthLayout({children}: { children: React.ReactNode }) {
   const cookieStore = cookies()
@@ -33,24 +29,22 @@ export default function AuthLayout({children}: { children: React.ReactNode }) {
     <body style={{height: '100vh'}}>
     <QueryRegistry>
       <ThemeRegistry defaultTheme={defaultTheme}>
-        <StoreRegistry>
-          <SimpleAppBar/>
-          <Box
-            component="main"
-            sx={{
-              display: 'flex',
-              minHeight: '100%',
-              flexGrow: 1,
-              bgcolor: 'background.default',
-              pb: ['48px'],
-              pt: ['64px'],
-              p: 1,
-            }}
-          >
-            {children}
-          </Box>
-          <FooterCard/>
-        </StoreRegistry>
+        <SimpleAppBar/>
+        <Box
+          component="main"
+          sx={{
+            display: 'flex',
+            minHeight: '100%',
+            flexGrow: 1,
+            bgcolor: 'background.default',
+            pb: ['48px'],
+            pt: ['64px'],
+            p: 1,
+          }}
+        >
+          {children}
+        </Box>
+        <FooterCard/>
       </ThemeRegistry>
     </QueryRegistry>
     </body>

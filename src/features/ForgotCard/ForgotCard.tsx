@@ -13,7 +13,6 @@ import {
   Stack,
   Typography
 } from "@mui/material";
-import PasswordInput from "@/components/PasswordInput";
 import React, {useMemo, useState} from "react";
 import {default as NextLink} from 'next/link';
 import CkkButtonSwitch from "@/components/CkkButtonSwitch";
@@ -26,31 +25,42 @@ import {useFormik} from "formik";
 import {useMutation} from "@tanstack/react-query";
 import requester from "@/tools/requester";
 import {ENDPOINTS} from "@/tools/constants";
-import {useRouter} from 'next/navigation';
 import LoadingButton from '@mui/lab/LoadingButton';
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-export interface LoginFormValues{
+export interface ForgotFormValues{
   email: string;
   mobile: string;
-  password: string;
 }
 function mobileConvertor(str: string){
   return str.replaceAll(' ', '').replaceAll('+98', '0')
 }
 function errorsConvertor(error){
-  if(error?.response?.data?.errors){
-    return error?.response?.data?.errors[0];
+  if(error?.response?.data?.errors && Object.keys(error?.response?.data?.errors).length > 0){
+    let errors = {};
+    Object.keys(error?.response?.data?.errors).forEach((field) => {
+      errors[field] = error?.response?.data?.errors[field][0]
+    })
+    return errors;
   }
-  return error?.message;
+  if(Boolean(error?.response?.data?.message)){
+    return {
+      general: error?.response?.data?.message
+    };
+  }
+
+  return {
+    general: error?.message
+  };
+}
+interface SignupCardProps{
+  onSuccess?: (type: 'email' | 'mobile', username: string, token: string) => unknown
 }
 //TODO email component, placeholder right, validation
 //TODO extract components
-//TODO change tabindex
-//TODO validate inputs using formik
-export default function LoginCard() {
+export default function ForgotCard(props: SignupCardProps) {
   const [method, setMethod] = useState<'email' | 'mobile'>('mobile')
   const [t] = useTranslation();
-  const router = useRouter();
   const handleMethodChange = (newVal: 0 | 1) => {
     setMethod(newVal === 0 ? 'mobile' : 'email')
   };
@@ -60,9 +70,6 @@ export default function LoginCard() {
         .string('')
         .email(t('enter_valid_email'))
         .required(t('this_field_is_required')),
-      password: yup
-        .string('')
-        .required(t('this_field_is_required')),
     }) : yup.object({
       mobile: yup
         .string()
@@ -71,27 +78,38 @@ export default function LoginCard() {
           t('enter_valid_phone_number')
         )
         .required(t('this_field_is_required')),
-      password: yup
-        .string('')
-        .required(t('this_field_is_required')),
     });
   }, [method])
   const mutation = useMutation((values) => {
-    return requester.post(ENDPOINTS.LOGIN, values);
+    return requester.post(ENDPOINTS.FORGOT, values, {
+      headers: {
+        'DONT_FLATTEN_ERRORS': 1
+      }
+    });
   })
-  const formik = useFormik<LoginFormValues>({
-    initialValues: { password: '', email: '', mobile: '' },
+  const formik = useFormik<ForgotFormValues>({
+    initialValues: { email: '', mobile: '' },
     validationSchema: validationSchema,
     enableReinitialize: true,
-    onSubmit: (values, { setSubmitting }) => {
+    onSubmit: (values, { setSubmitting, setErrors }) => {
       let data = {
-        password: values.password,
-        username: method === 'email' ? values.email : mobileConvertor(values.mobile)
+        username: method === 'email' ? values.email : mobileConvertor(values.mobile),
+        type: method,
       }
+
       mutation.mutate(data, {
-        onSuccess: (data, variables, context) => {
-          localStorage.setItem('access_token', data.access_token)
-          router.push('/')
+        onError: (error, variables, context) => {
+          let convertedErrors = errorsConvertor(error);
+          if(Boolean(convertedErrors['username'])){
+            convertedErrors[method] = convertedErrors['username'];
+            delete convertedErrors['username'];
+          }
+          setErrors(convertedErrors)
+        },
+        onSuccess: (d, variables, context) => {
+          if(props.onSuccess){
+            props.onSuccess(data.type, data.username, d.data.data.token)
+          }
         },
         onSettled: (data, error, variables, context) => {
           setSubmitting(false);
@@ -108,11 +126,11 @@ export default function LoginCard() {
           )
         }
         <CardHeader
-          title={t('welcome')}
+          title={t('recover_password')}
           titleTypographyProps={{
             fontWeight: 'bolder'
           }}
-          subheader={t('please_enter_your_credentials')}
+          subheader={t('we_send_a_code_for_recovery')}
         />
         <CardContent>
           <form onSubmit={formik.handleSubmit}>
@@ -126,7 +144,7 @@ export default function LoginCard() {
               {
                 method === 'mobile' && (
                   <Box>
-                    <Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'}>
+                    <Stack direction={'row'} justifyContent={'space-between'}>
                       <Typography fontWeight={'bold'}>{t('mobile')}</Typography>
                       <Box color={'error.main'} fontSize={'x-small'}>{formik.touched.mobile && formik.errors.mobile}</Box>
                     </Stack>
@@ -171,38 +189,23 @@ export default function LoginCard() {
                   />
                 </Box>
               )}
-              <Box>
-                <Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'}>
-                  <Typography fontWeight={'bold'}>{t('password')}</Typography>
-                  <Box color={'error.main'} fontSize={'x-small'}>{formik.touched.password && formik.errors.password}</Box>
-                </Stack>
-                <PasswordInput
-                  name={'password'}
-                  fullWidth
-                  size={'small'}
-                  value={formik.values.password}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  error={formik.touched.password && Boolean(formik.errors.password)}
-                />
-              </Box>
-              <Stack direction={'row'} justifyContent={'end'} sx={{mt: '2px!important'}}>
-                <Link tabIndex={-1} fontSize={'smaller'} component={NextLink} underline={'none'}
-                      href={'/forgot'}>{t('i_forget_my_password')}</Link>
-              </Stack>
               {formik.isSubmitting ? (
                 <LoadingButton loading variant="outlined">
                   Submit
                 </LoadingButton>
               ) : (
-                <Button fullWidth type={'submit'} variant={'contained'} color={'info'}>{t('login')}</Button>
+                <Button fullWidth type={'submit'} variant={'contained'} color={'info'}>{t('confirm')}</Button>
               )}
             </Stack>
           </form>
         </CardContent>
         <CardActions sx={{justifyContent: 'center'}}>
-          <Typography component={'span'} color={'text.secondary'}>{t('still_not_registered')}</Typography>
-          <Link component={NextLink} href={'/signup'} underline={'none'} px={1}>{t('signup')}</Link>
+          <Button
+            component={NextLink}
+            href={'/login'}
+            color={'secondary'}
+            endIcon={<ArrowBackIcon />}
+          >{t('return_to_login')}</Button>
         </CardActions>
       </CkkCardType3>
       <Snackbar
@@ -212,24 +215,11 @@ export default function LoginCard() {
         autoHideDuration={8000}
         onClose={() => mutation.reset()}
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-        open={mutation.isError}
+        open={Boolean(errorsConvertor(mutation.error)?.general)}
         key={'login-failed-snackbar'}
       >
         <Alert severity="error" variant={'filled'} onClose={() => mutation.reset()} sx={{ width: '100%' }}>
-          {errorsConvertor(mutation.error)}
-        </Alert>
-      </Snackbar>
-      <Snackbar
-        sx={{
-          zIndex: 4000
-        }}
-        autoHideDuration={8000}
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-        open={mutation.isSuccess}
-        key={'login-success-snackbar'}
-      >
-        <Alert severity="success" sx={{ width: '100%' }} variant={'filled'}>
-          {t('success_login_redirecting')}
+          {errorsConvertor(mutation.error)?.general}
         </Alert>
       </Snackbar>
     </>
