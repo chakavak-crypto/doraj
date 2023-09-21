@@ -48,5 +48,16 @@
   "wallet": "کیف پول",
   "deposit": "واریز",
   "withdraw": "برداشت",
-  "others": "سایر"
+  "others": "سایر",
+  "latest_transactions": "آخرین تراکنش ها",
+  "announcement": "اطلاعیه",
+  "show": "نمایش",
+  "crypocurrencies_price": "قیمت ارزهای دیجیتال",
+  "latest_price_of_cryptos": "لیست آخرین قیمت رمزارزها",
+  "toman": "تومان",
+  "crypto": "رمزارز",
+  "voucher": "ووچر",
+  "show_all": "نمایش همه",
+  "favorites": "مورد علاقه ها",
+  "newest": "جدیدترین ها"
 }

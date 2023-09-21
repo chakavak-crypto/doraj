@@ -38,7 +38,23 @@ function BasicList() {
           <ListItemIcon sx={{minWidth: '28px!important'}}>
             <InboxIcon sx={{width: '17px', height: '17px'}}/>
           </ListItemIcon>
-          <ListItemText primary="Inbox"/>
+          <ListItemText primary="سطح ۱"/>
+        </ListItemButton>
+      </ListItem>
+      <ListItem disablePadding>
+        <ListItemButton sx={{py: 0.5}}>
+          <ListItemIcon sx={{minWidth: '28px!important'}}>
+            <InboxIcon sx={{width: '17px', height: '17px'}}/>
+          </ListItemIcon>
+          <ListItemText primary="حساب کاربری"/>
+        </ListItemButton>
+      </ListItem>
+      <ListItem disablePadding>
+        <ListItemButton sx={{py: 0.5}}>
+          <ListItemIcon sx={{minWidth: '28px!important'}}>
+            <InboxIcon sx={{width: '17px', height: '17px'}}/>
+          </ListItemIcon>
+          <ListItemText primary="امنیت"/>
         </ListItemButton>
       </ListItem>
       <ListItem disablePadding>
@@ -46,7 +62,7 @@ function BasicList() {
           <ListItemIcon sx={{minWidth: '28px!important'}}>
             <DraftsIcon sx={{width: '17px', height: '17px'}}/>
           </ListItemIcon>
-          <ListItemText primary="Drafts"/>
+          <ListItemText primary="پیام ها"/>
         </ListItemButton>
       </ListItem>
       <Divider variant="middle" component="li"/>
@@ -55,7 +71,7 @@ function BasicList() {
           <ListItemIcon sx={{minWidth: '28px!important'}}>
             <InboxIcon sx={{width: '17px', height: '17px'}}/>
           </ListItemIcon>
-          <ListItemText primary="Logout"/>
+          <ListItemText primary="خروج"/>
         </ListItemButton>
       </ListItem>
     </>
@@ -89,6 +105,7 @@ export default function CkkAccountPopover() {
               borderTop: 'none',
               borderTopLeftRadius: 0,
               borderTopRightRadius: 0,
+              borderWidth: '2px',
             },
             '& .MuiList-root': {
               bgcolor: 'background.paper',

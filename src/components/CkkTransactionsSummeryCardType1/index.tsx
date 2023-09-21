@@ -1,0 +1,3 @@
+import CkkTransactionsSummeryCardType1 from './CkkTransactionsSummeryCardType1';
+
+export default CkkTransactionsSummeryCardType1;
