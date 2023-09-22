@@ -10,7 +10,13 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/Inbox';
 import DraftsIcon from '@mui/icons-material/Drafts';
 import {styled} from "@mui/system";
-
+import LogoutIcon from '@mui/icons-material/Logout';
+import SecurityIcon from '@mui/icons-material/Security';
+import PersonIcon from '@mui/icons-material/Person';
+import WarningAmberIcon from '@mui/icons-material/WarningAmber';
+import {useAppDispatch} from "@/tools/redux/hooks";
+import {useTranslation} from "@/app/i18n/client";
+import {openLogoutModal} from "@/features/LogoutModal/LogoutModalSlice";
 
 const StyledSelect = styled<SelectProps>(Select)(({theme}) => ({
   minWidth: '150px',
@@ -26,6 +32,9 @@ const StyledSelect = styled<SelectProps>(Select)(({theme}) => ({
 }))
 
 function BasicList() {
+  const dispatch = useAppDispatch();
+  const [t] = useTranslation();
+  const handleOpen = () => dispatch(openLogoutModal());
   return (
     <>
       <Divider sx={{
@@ -36,7 +45,7 @@ function BasicList() {
       <ListItem disablePadding>
         <ListItemButton sx={{py: 0.5}}>
           <ListItemIcon sx={{minWidth: '28px!important'}}>
-            <InboxIcon sx={{width: '17px', height: '17px'}}/>
+            <WarningAmberIcon sx={{width: '17px', height: '17px'}}/>
           </ListItemIcon>
           <ListItemText primary="سطح ۱"/>
         </ListItemButton>
@@ -44,7 +53,7 @@ function BasicList() {
       <ListItem disablePadding>
         <ListItemButton sx={{py: 0.5}}>
           <ListItemIcon sx={{minWidth: '28px!important'}}>
-            <InboxIcon sx={{width: '17px', height: '17px'}}/>
+            <PersonIcon sx={{width: '17px', height: '17px'}}/>
           </ListItemIcon>
           <ListItemText primary="حساب کاربری"/>
         </ListItemButton>
@@ -52,7 +61,7 @@ function BasicList() {
       <ListItem disablePadding>
         <ListItemButton sx={{py: 0.5}}>
           <ListItemIcon sx={{minWidth: '28px!important'}}>
-            <InboxIcon sx={{width: '17px', height: '17px'}}/>
+            <SecurityIcon sx={{width: '17px', height: '17px'}}/>
           </ListItemIcon>
           <ListItemText primary="امنیت"/>
         </ListItemButton>
@@ -67,9 +76,9 @@ function BasicList() {
       </ListItem>
       <Divider variant="middle" component="li"/>
       <ListItem disablePadding>
-        <ListItemButton sx={{py: 0.5}}>
+        <ListItemButton onClick={handleOpen} sx={{py: 0.5}}>
           <ListItemIcon sx={{minWidth: '28px!important'}}>
-            <InboxIcon sx={{width: '17px', height: '17px'}}/>
+            <LogoutIcon sx={{width: '17px', height: '17px'}}/>
           </ListItemIcon>
           <ListItemText primary="خروج"/>
         </ListItemButton>

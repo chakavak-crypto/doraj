@@ -7,6 +7,11 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import {useAppDispatch, useAppSelector} from "@/tools/redux/hooks";
 import {closeLogoutModal, openLogoutModal, selectOpen} from "@/features/LogoutModal/LogoutModalSlice";
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
+import Dialog from '@mui/material/Dialog';
+import {useTranslation} from "@/app/i18n/client";
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -20,7 +25,7 @@ const style = {
   p: 4
 };
 
-export default function LogoutModal() {
+/*export default function LogoutModal() {
   const open = useAppSelector(selectOpen)
   const dispatch = useAppDispatch();
   const handleOpen = () => dispatch(openLogoutModal());
@@ -51,5 +56,37 @@ export default function LogoutModal() {
         </Box>
       </Modal>
     </div>
+  );
+}*/
+
+
+export default function LogoutModal() {
+  const open = useAppSelector(selectOpen)
+  const dispatch = useAppDispatch();
+  const [t] = useTranslation();
+  const handleClose = () => dispatch(closeLogoutModal());
+
+  const handleOk = () => {
+
+  };
+
+  return (
+    <Dialog
+      sx={{ '& .MuiDialog-paper': { width: '80%', maxHeight: 435 } }}
+      maxWidth="xs"
+      open={open}
+      keepMounted
+    >
+      <DialogTitle>{t('logout_of_system')}</DialogTitle>
+      <DialogContent dividers>
+        <Typography>
+          {t('logout_message')}
+        </Typography>
+      </DialogContent>
+      <DialogActions>
+        <Button autoFocus onClick={handleClose} variant={'outlined'} color={'secondary'}>{t('cancel')}</Button>
+        <Button onClick={handleOk} variant={'outlined'} color={'error'}>{t('yes_logout')}</Button>
+      </DialogActions>
+    </Dialog>
   );
 }
