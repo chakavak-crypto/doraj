@@ -1,12 +1,9 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import {useTranslation} from "@/app/i18n";
-import {Button, ButtonGroup, Divider, Grid, InputAdornment, Stack, TextField, Typography} from "@mui/material";
+import {Grid, Stack} from "@mui/material";
 import CkkContent from "@/components/CkkContent/CkkContent";
 import CkkAlertType1 from "@/components/CkkAlertType1";
-import CkkCardType2 from "@/components/CkkCardType2";
-import SearchIcon from '@mui/icons-material/Search';
-import CkkCurrenciesTableType1 from "@/components/CkkCurrenciesTableType1";
 import CkkWalletSummeryCardType1 from "@/components/CkkWalletSummeryCardType1";
 import CkkTransactionsSummeryCardType1 from "@/components/CkkTransactionsSummeryCardType1";
 import CkkEventCardType1 from "@/components/CkkEventCardType1";

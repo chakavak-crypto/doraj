@@ -1,5 +1,3 @@
-import OrderCard from "@/features/OrderCard";
-
 interface OrderPageProps {
   params: {
     segments?: string[]
@@ -15,6 +13,6 @@ export default function OrderPage(props: OrderPageProps) {
       : props.params.segments;
 
   return (
-    <OrderCard/>
+    <div>e-currencies</div>
   );
 }

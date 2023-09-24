@@ -1,6 +1,6 @@
 'use client';
 
-import {Box, Card, Stack, Typography} from "@mui/material";
+import {Card, Typography} from "@mui/material";
 import CkkTradesTableType1 from "@/components/CkkTradesTableType1";
 
 export default function CkkTradesCardType1(){

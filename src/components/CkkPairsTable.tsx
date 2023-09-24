@@ -1,6 +1,6 @@
 import {createTheme, ThemeProvider, useTheme} from "@mui/material/styles";
 import MUIDataTable, {MUIDataTableColumn, MUIDataTableOptions} from "mui-datatables";
-import {Avatar, Box, IconButton, Stack, Typography} from "@mui/material";
+import {Box, IconButton, Stack, Typography} from "@mui/material";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import * as React from "react";
 import {useMemo} from "react";

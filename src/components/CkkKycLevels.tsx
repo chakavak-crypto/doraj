@@ -1,6 +1,6 @@
 'use client';
 
-import {Avatar, Badge, Box, Button, Card, CardContent, Grid, Stack, Typography} from "@mui/material";
+import {Avatar, Box, Button, Card, CardContent, Grid, Stack, Typography} from "@mui/material";
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import {useTranslation} from "@/app/i18n/client";
 

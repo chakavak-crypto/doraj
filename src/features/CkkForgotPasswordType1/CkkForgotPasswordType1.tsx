@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import {useState} from "react";
-import SignupCard from "@/features/SignupCard";
 import VerifyCard from "@/features/VerifyCard";
 import {ENDPOINTS} from "@/tools/constants";
 import {useTranslation} from "@/app/i18n/client";

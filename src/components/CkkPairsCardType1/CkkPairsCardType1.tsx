@@ -3,10 +3,11 @@
 import {
   Box,
   Card,
-  CardContent,
-  FormControl, FormControlLabel,
-  InputAdornment, List, ListItem, ListItemButton, ListItemIcon, ListItemText,
-  Paper, Radio,
+  FormControl,
+  FormControlLabel,
+  InputAdornment,
+  Paper,
+  Radio,
   RadioGroup,
   Stack,
   TabProps,
@@ -19,7 +20,6 @@ import {useState} from "react";
 import {useTranslation} from "@/app/i18n/client";
 import styled from "@emotion/styled";
 import StarBorderIcon from '@mui/icons-material/StarBorder';
-import InboxIcon from '@mui/icons-material/Inbox';
 import CkkPairsTable from "@/components/CkkPairsTable";
 
 const StyledTab = styled(Tab)<TabProps>(({theme}) => ({

@@ -1,19 +1,6 @@
 'use client';
 
-import {
-  Avatar,
-  Box,
-  Button,
-  Card,
-  CardContent,
-  CardHeader,
-  Divider,
-  IconButton,
-  Stack,
-  Typography
-} from "@mui/material";
-import {useQuery} from "@tanstack/react-query";
-import axios from "axios";
+import {Avatar, Box, Button, Divider, IconButton, Stack, Typography} from "@mui/material";
 import ExpandCircleDownOutlinedIcon from '@mui/icons-material/ExpandCircleDownOutlined';
 import {useTranslation} from "@/app/i18n/client";
 import {default as NextLink} from 'next/link';

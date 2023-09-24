@@ -1,5 +1,7 @@
+'use client';
+
 import * as React from 'react';
-import {useId, useLayoutEffect, useRef, useState} from 'react';
+import {useLayoutEffect, useRef, useState} from 'react';
 import {Avatar, Box, Button, Divider, Grid, List, ListItemButton, MenuItemProps, Typography} from "@mui/material";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Menu from '@mui/material/Menu';
@@ -9,7 +11,9 @@ import IconButton from '@mui/material/IconButton';
 import CkkButtonType1 from "../CkkButtonType1";
 import CkkSearchField from "@/components/CkkSearchField";
 import {styled} from "@mui/material/styles";
-
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 const CustomMenuItem = styled<MenuItemProps>(MenuItem)(({theme}) => ({
   disableRipple: true,
@@ -29,9 +33,9 @@ export default function CkkSelectTyp1() {
   const [width, setWidth] = useState(0);
   const elementRef = useRef<any>(null);
   const open = Boolean(anchorEl);
-  const containerId = useId();
-  const popoverId = useId();
-  const buttonId = useId();
+  const containerId = 'assets-container';
+  const popoverId = 'assets-list-popover';
+  const buttonId = 'switch-asset-button';
   useLayoutEffect(() => {
     const handleResize = () => {
       // @ts-ignore
@@ -116,7 +120,15 @@ export default function CkkSelectTyp1() {
           }}
           component={'div'}
         >
-          <div>انتخاب ارز</div>
+          <RadioGroup
+            row
+            aria-labelledby="demo-row-radio-buttons-group-label"
+            name="row-radio-buttons-group"
+            sx={{px: 1}}
+          >
+            <FormControlLabel value="female" control={<Radio />} label="رمزارز" />
+            <FormControlLabel value="male" control={<Radio />} label="ووچر" />
+          </RadioGroup>
           <IconButton size={'small'} onClick={handleClose} aria-label="delete">
             <KeyboardArrowUpIcon/>
           </IconButton>

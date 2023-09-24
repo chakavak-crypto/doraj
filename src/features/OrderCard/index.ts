@@ -1,3 +1,6 @@
-import OrderCard from './OrderCard';
+export const SellCryptoCard;
+export const BuyCryptoCard;
+export const LoadingCard;
 
-export default OrderCard;
+
+export default {};

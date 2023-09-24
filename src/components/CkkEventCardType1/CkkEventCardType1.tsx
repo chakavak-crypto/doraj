@@ -1,9 +1,7 @@
 'use client';
 
 import CkkContent from "@/components/CkkContent/CkkContent";
-import {Box, Button, IconButton, Stack, Typography} from "@mui/material";
-import {default as NextLink} from "next/link";
-import ExpandCircleDownOutlinedIcon from "@mui/icons-material/ExpandCircleDownOutlined";
+import {Button, Stack, Typography} from "@mui/material";
 import * as React from "react";
 import {useTranslation} from "@/app/i18n/client";
 

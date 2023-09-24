@@ -1,6 +1,6 @@
 'use client';
 
-import {Box, Button, Card, CardContent, LinearProgress, Link, Stack, Typography} from "@mui/material";
+import {Box, Button, Card, CardContent, Link, Stack, Typography} from "@mui/material";
 import {default as NextLink} from 'next/link';
 import {useTranslation} from "@/app/i18n/client";
 import CkkRoundedLinearProgress from "@/components/CkkRoundedLinearProgress";

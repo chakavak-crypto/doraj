@@ -1,19 +1,15 @@
 'use client';
 
-import {Button, ButtonGroup, Divider, Grid, InputAdornment, Stack, TextField, Typography} from "@mui/material";
+import {Divider, Grid, InputAdornment, Stack, TextField, Typography} from "@mui/material";
 import Box from "@mui/material/Box";
 import CkkCardType2 from "@/components/CkkCardType2";
 import SearchIcon from "@mui/icons-material/Search";
 import CkkCurrenciesTableType1 from "@/components/CkkCurrenciesTableType1";
 import CkkContent from "@/components/CkkContent/CkkContent";
 import * as React from "react";
-import {useTranslation} from "@/app/i18n/client";
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
-import CkkResponsiveButtonSwitchType1 from "@/components/CkkResponsiveButtonSwitchType1";
 import {useState} from "react";
+import {useTranslation} from "@/app/i18n/client";
+import CkkResponsiveButtonSwitchType1 from "@/components/CkkResponsiveButtonSwitchType1";
 import CkkResponsiveButtonSwitchType2 from "@/components/CkkResponsiveButtonSwitchType2";
 
 

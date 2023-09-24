@@ -37,7 +37,6 @@ function valuetext(value: number) {
 }
 
 const StyledSlider = styled<SliderProps>(Slider)(({theme}) => ({
-  color: theme.palette.success.dark,
   height: 3,
   '& .MuiSlider-thumb': {
     '&:focus, &:hover, &.Mui-active': {
@@ -83,6 +82,7 @@ const StyledSlider = styled<SliderProps>(Slider)(({theme}) => ({
 
 export interface CkkCurrencyFieldType1 extends OutlinedInputProps {
   hasSlider?: boolean | undefined;
+  sliderColor?: 'success' | 'error' | 'primary' | 'warning';
   base?: number;
   defaultValue?: number;
   label?: string | undefined;
@@ -119,6 +119,7 @@ const CustomNumericFormat = (props) => {
 export default function CkkCurrencyFieldType1(props: CkkCurrencyFieldType1) {
   const {
     hasSlider,
+    sliderColor,
     label,
     InputProps,
     icon,
@@ -214,6 +215,7 @@ export default function CkkCurrencyFieldType1(props: CkkCurrencyFieldType1) {
             marks={marks}
             sx={{
               pt: 0.5,
+              color: Boolean(sliderColor) ? sliderColor : 'primary'
             }}
           />
         </Box>

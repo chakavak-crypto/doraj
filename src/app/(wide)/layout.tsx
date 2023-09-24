@@ -5,7 +5,6 @@ import {dir} from 'i18next';
 import {cookies} from 'next/headers'
 import {fallbackLng} from '@/app/i18n/settings'
 import AppBar from "@/features/AppBar";
-import MainSideBar from "@/features/MainSideBar/MainSideBar";
 import FooterCard from "@/components/FooterCard";
 import StoreRegistry from "@/tools/redux/StoreRegistry";
 import LogoutModal from "@/features/LogoutModal";

@@ -1,12 +1,10 @@
 'use client';
 
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
 import {useAppDispatch, useAppSelector} from "@/tools/redux/hooks";
-import {closeLogoutModal, openLogoutModal, selectOpen} from "@/features/LogoutModal/LogoutModalSlice";
+import {closeLogoutModal, selectOpen} from "@/features/LogoutModal/LogoutModalSlice";
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';

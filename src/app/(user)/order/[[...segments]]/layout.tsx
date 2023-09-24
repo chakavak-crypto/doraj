@@ -1,11 +1,10 @@
 import CkkContent from "@/components/CkkContent/CkkContent";
-import CkkAlertType1 from "@/components/CkkAlertType1";
 import {Box, Button, Stack, Typography} from "@mui/material";
 import CkkBreadcrumbsType1 from "@/components/CkkBreadcrumbsType1";
 import Link from "next/link";
 import HomeIcon from "@mui/icons-material/Home";
 import AssignmentIcon from "@mui/icons-material/Assignment";
-import {ReactNode} from "react";
+import {ReactNode, useMemo} from "react";
 
 interface OrderLayoutProps {
   params: {
@@ -15,14 +14,27 @@ interface OrderLayoutProps {
   }
 }
 
-export default function OrderLayout({children}: {
-  children: ReactNode
+export default function OrderLayout({children, params, buy_crypto, sell_crypto, ecurrencies}: {
+  children: ReactNode,
+  params: {segments?: string[]},
+  buy_crypto: ReactNode,
+  sell_crypto: ReactNode,
+  ecurrencies: ReactNode
 }) {
+
+  const form = useMemo(() => {
+    const [orderType, asset, volume] =
+      params.segments === undefined ?
+        [undefined, undefined, undefined]
+        : params.segments;
+
+    if(orderType === 'sell'){
+      return sell_crypto;
+    }
+    return buy_crypto;
+  }, [params])
   return (
     <CkkContent>
-      <CkkAlertType1 severity={'error'} variant="filled">
-        این یک متن تستی است
-      </CkkAlertType1>
       <Stack sx={{display: {xs: 'none', sm: 'flex'}}} direction={'row'} justifyContent={'space-between'} py={1}>
         <CkkBreadcrumbsType1>
           <Link underline="none" href="/">
@@ -45,7 +57,7 @@ export default function OrderLayout({children}: {
         </Box>
       </Stack>
       <Box sx={{mt: 3}}>
-        {children}
+        {form}
       </Box>
     </CkkContent>
   );
