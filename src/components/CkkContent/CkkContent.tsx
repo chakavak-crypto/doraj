@@ -7,14 +7,15 @@ export interface CkkContentProps extends PaperProps {
 
 const styles = {
   borderStyle: 'solid',
-  borderWidth: '2px',
+  borderWidth: [0, '2px'],
   borderColor: 'divider',
   height: '100%',
   bgcolor: 'background.paper',
   boxShadow: 'none',
   py: 1,
-  px: 1.5,
+  px: [0.25, 1.5],
   overflowY: 'scroll',
+  borderRadius: [0, '8px']
 }
 export default function CkkContent(props: CkkContentProps) {
   return (

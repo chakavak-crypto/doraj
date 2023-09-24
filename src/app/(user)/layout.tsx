@@ -17,7 +17,7 @@ export const metadata = {
   description: 'Next.js App Router + Material UI v5',
 };
 
-const DRAWER_WIDTH = 240;
+const DRAWER_WIDTH = 180;
 
 //TODO compute main box height dynamically
 export default function RootLayout({children}: { children: React.ReactNode }) {
@@ -37,7 +37,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
       <ThemeRegistry defaultTheme={defaultTheme}>
         <StoreRegistry>
           <AppBar/>
-          <MainSideBar width={DRAWER_WIDTH} open={false}/>
+          <MainSideBar width={DRAWER_WIDTH} open={true}/>
           <Box
             component="main"
             sx={{
@@ -45,7 +45,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
               ml: ['0', '0', `${DRAWER_WIDTH}px`],
               pt: ['74px'],
               pb: ['80px', '48px'],
-              px: [1, 2],
+              px: [0, 2],
               height: '100%'
             }}
           >
