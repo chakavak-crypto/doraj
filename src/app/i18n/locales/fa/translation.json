@@ -76,5 +76,6 @@
   "show_all_levels": "نمایش تمام سطوح",
   "upgrade_to_level1": "ارتقا به سطح ۱",
   "kyc_auto_verification": "اغلب اطلاعات و مدارک شما بصورت خودکار و سیستمی محرز می شود",
-  "required_certificates": "مدارک مورد نیاز"
+  "required_certificates": "مدارک مورد نیاز",
+  "return": "بازگشت"
 }

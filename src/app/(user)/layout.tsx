@@ -37,7 +37,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
       <ThemeRegistry defaultTheme={defaultTheme}>
         <StoreRegistry>
           <AppBar/>
-          <MainSideBar width={DRAWER_WIDTH} open={true}/>
+          <MainSideBar width={DRAWER_WIDTH} open={false}/>
           <Box
             component="main"
             sx={{

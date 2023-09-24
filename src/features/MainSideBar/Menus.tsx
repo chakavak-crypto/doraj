@@ -17,6 +17,7 @@ import {MenuProps} from "@/features/MainSideBar/types";
 import Menu from "@/features/MainSideBar/Menu";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import {openLogoutModal} from "@/features/LogoutModal/LogoutModalSlice";
+import {closeMainSideBar} from "@/features/MainSideBar/MainSideBarSlice";
 
 const DRAWER_WIDTH = 240;
 
@@ -56,7 +57,9 @@ export default function Menus() {
       </List>
       <List sx={{mt: 'auto'}}>
         <ListItem sx={{display: {xs: 'none', md: 'flex'}}} key={'close-sidebar'} disablePadding>
-          <ListItemButton sx={{
+          <ListItemButton
+            onClick={() => dispatch(closeMainSideBar())}
+            sx={{
             '&:hover': {
               background: 'inherit'
             }
