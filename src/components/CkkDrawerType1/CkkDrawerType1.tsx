@@ -43,6 +43,7 @@ export default function CkkDrawerType1(props: CkkDrawerType1Props) {
       </Drawer>
     ) : (
       <Drawer
+        open={open}
         sx={{
           width: width,
           display: {xs: 'none', md: 'block'},

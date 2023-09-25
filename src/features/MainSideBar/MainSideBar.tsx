@@ -38,7 +38,7 @@ export default function MainSideBar(props: MainSideBarProps) {
         </Box>
       </Stack>
       <Box sx={{mx: 3, display: {xs: 'flex', md: 'none'}}}>
-        <Greeting size={'small'} name={'کاربر'}/>
+        <Greeting orientation={'vertical'} size={'small'} name={'حامد'}/>
       </Box>
       <Menus/>
     </CkkDrawerType1>

@@ -23,41 +23,6 @@ const style = {
   p: 4
 };
 
-/*export default function LogoutModal() {
-  const open = useAppSelector(selectOpen)
-  const dispatch = useAppDispatch();
-  const handleOpen = () => dispatch(openLogoutModal());
-  const handleClose = () => dispatch(closeLogoutModal());
-
-  return (
-    <div>
-      <Modal
-        sx={{
-          zIndex: 3000
-        }}
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            خروج از سیستم
-          </Typography>
-          <Typography id="modal-modal-description" sx={{mt: 2}}>
-            برای خروج از سیستم اطمینان دارید؟
-          </Typography>
-          <Box>
-            <Button variant={'outlined'} color={'error'}>بله، خارج می شود</Button>
-            <Button variant={'outlined'} color={'secondary'}>انصراف</Button>
-          </Box>
-        </Box>
-      </Modal>
-    </div>
-  );
-}*/
-
-
 export default function LogoutModal() {
   const open = useAppSelector(selectOpen)
   const dispatch = useAppDispatch();
@@ -70,7 +35,7 @@ export default function LogoutModal() {
 
   return (
     <Dialog
-      sx={{ '& .MuiDialog-paper': { width: '80%', maxHeight: 435 } }}
+      sx={{ '& .MuiDialog-paper': { width: '80%', maxHeight: 435 }, zIndex: 3000 }}
       maxWidth="xs"
       open={open}
       keepMounted

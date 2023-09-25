@@ -29,10 +29,10 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
       lang={lng}
       dir={dir(lng)}
       data-theme={defaultTheme ? defaultTheme : 'dark'}
-      style={{colorScheme: defaultTheme ? defaultTheme : 'dark'}}
+      style={{colorScheme: defaultTheme ? defaultTheme : 'dark', overflow: 'hidden'}}
       className={`${IRANSansX.variable} ${IRANSansXFaNum.variable} ${roboto.variable}`}
     >
-    <body style={{height: '100vh'}}>
+    <body style={{height: '100vh', overflow: 'hidden'}}>
     <QueryRegistry>
       <ThemeRegistry defaultTheme={defaultTheme}>
         <StoreRegistry>

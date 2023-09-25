@@ -15,7 +15,12 @@ const styles = {
   py: 1,
   px: [0.25, 1.5],
   overflowY: 'scroll',
-  borderRadius: [0, '8px']
+  borderRadius: [0, '8px'],
+  '&::-webkit-scrollbar': {
+    display: 'none'
+  },
+  scrollbarWidth: 'none',
+  msOverflowStyle: 'none'
 }
 export default function CkkContent(props: CkkContentProps) {
   return (

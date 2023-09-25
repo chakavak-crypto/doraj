@@ -12,9 +12,6 @@ export default function WalletLayout({children}: {
 }) {
   return (
     <CkkContent>
-      <CkkAlertType1 severity={'error'} variant="filled">
-        این یک متن تستی است
-      </CkkAlertType1>
       <Stack sx={{display: {xs: 'none', sm: 'flex'}}} direction={'row'} justifyContent={'space-between'} py={1}>
         <CkkBreadcrumbsType1>
           <Link underline="none" href="/">
