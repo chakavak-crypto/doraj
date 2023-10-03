@@ -1,10 +1,15 @@
 import CkkContent from "@/components/CkkContent/CkkContent";
-import {Box, Button, Stack, Typography} from "@mui/material";
+import {Box, Button, Skeleton, Stack, Typography} from "@mui/material";
 import CkkBreadcrumbsType1 from "@/components/CkkBreadcrumbsType1";
 import Link from "next/link";
 import HomeIcon from "@mui/icons-material/Home";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import {ReactNode, useMemo} from "react";
+
+export const metadata = {
+  title: 'ثبت سفارش',
+  description: 'خرید و فروش آسان',
+};
 
 interface OrderLayoutProps {
   params: {

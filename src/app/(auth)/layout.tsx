@@ -9,6 +9,7 @@ import StoreRegistry from "@/tools/redux/StoreRegistry";
 import SimpleAppBar from "@/features/SimpleAppBar";
 import {IRANSansX, IRANSansXFaNum, roboto} from '@/app/fonts';
 import QueryRegistry from "@/tools/query/QueryRegistry";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 export const metadata = {
   title: 'Next.js App Router + Material UI v5',
@@ -52,6 +53,7 @@ export default function AuthLayout({children}: { children: React.ReactNode }) {
           <FooterCard/>
         </StoreRegistry>
       </ThemeRegistry>
+      <ReactQueryDevtools initialIsOpen />
     </QueryRegistry>
     </body>
     </html>
