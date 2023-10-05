@@ -1,3 +1,5 @@
+'use client';
+
 import {Box, Button, ButtonProps, Stack, StackProps} from "@mui/material";
 
 interface CkkButtonSwitchProps {

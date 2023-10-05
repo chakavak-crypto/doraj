@@ -20,6 +20,7 @@ import WarningIcon from '@mui/icons-material/Warning';
 import CryptoWithdrawalCard from "@/features/CryptoWithdrawalCard";
 import RefreshIcon from '@mui/icons-material/Refresh';
 import CkkLatestWithdrawalsTableType1 from "@/components/CkkLatestWithdrawalsTableType1";
+import Link from "next/link";
 
 export default function CryptoWithdrawalPage() {
 
@@ -68,6 +69,8 @@ export default function CryptoWithdrawalPage() {
             </Box>
             <Stack direction={'row'} spacing={1}>
               <Button
+                component={Link}
+                href={'/transactions/withdrawals/crypto'}
                 size={'small'}
                 variant={'outlined'}
                 color={'inherit'}>تاریخچه برداشت ها</Button>

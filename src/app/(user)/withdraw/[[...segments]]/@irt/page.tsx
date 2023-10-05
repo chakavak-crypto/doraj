@@ -20,6 +20,7 @@ import WarningIcon from '@mui/icons-material/Warning';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import IrtWithdrawalCard from "@/features/IrtWithdrawalCard";
 import CkkLatestWithdrawalsTableType2 from "@/components/CkkLatestWithdrawalsTableType2";
+import Link from "next/link";
 
 export default function IrtWithdrawalPage() {
 
@@ -68,6 +69,8 @@ export default function IrtWithdrawalPage() {
             </Box>
             <Stack direction={'row'} spacing={1}>
               <Button
+                component={Link}
+                href={'/transactions/withdrawals/fiat'}
                 size={'small'}
                 variant={'outlined'}
                 color={'inherit'}>تاریخچه برداشت ها</Button>

@@ -20,7 +20,9 @@ const styles = {
     display: 'none'
   },
   scrollbarWidth: 'none',
-  msOverflowStyle: 'none'
+  msOverflowStyle: 'none',
+  display: 'flex',
+  flexDirection: 'column',
 }
 export default function CkkContent(props: CkkContentProps) {
   return (

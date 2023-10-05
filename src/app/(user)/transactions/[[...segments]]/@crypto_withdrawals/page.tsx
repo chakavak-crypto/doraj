@@ -1,5 +1,5 @@
 export default function WithdrawalsPage(){
   return (
-    <div>withdrawals</div>
+    <div>Crypto withdrawals</div>
   );
 }
