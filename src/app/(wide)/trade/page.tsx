@@ -4,6 +4,7 @@ import CkkAssetStatType1 from "@/components/CkkAssetStatType1";
 import CkkTechnicalChart from "@/components/CkkTechnicalChart";
 import CkkPairsCardType1 from "@/components/CkkPairsCardType1";
 import CkkTradesCardType1 from "@/components/CkkTradesCardType1";
+import CkkOrderBookType1 from "@/components/CkkOrderBookType1";
 
 export default function TradePage() {
   return (
@@ -41,7 +42,9 @@ export default function TradePage() {
             </Box>
           </Stack>
         </Grid>
-        <Grid item lg={3}>left</Grid>
+        <Grid item lg={3}>
+          <CkkOrderBookType1 />
+        </Grid>
         <Grid item xs={12}>orders</Grid>
       </Grid>
     </CkkContent>

@@ -1,8 +1,8 @@
 'use client'
 
-import {Box, Divider, Stack} from "@mui/material";
-import CkkLatestWithdrawalsTableType2 from "@/components/CkkLatestWithdrawalsTableType2";
+import {Box, Divider} from "@mui/material";
 import * as React from "react";
+import CkkFiatDepositsType1 from "@/components/CkkFiatDepositsType1";
 
 export default function FiatDeposits(){
   return (
@@ -10,7 +10,7 @@ export default function FiatDeposits(){
       <Box sx={{mt: 1.5}}>filters</Box>
       <Divider sx={{mx: -1.5, my: 1.5}} />
       <Box sx={{mx: -1.5}}>
-        <CkkLatestWithdrawalsTableType2/>
+        <CkkFiatDepositsType1 />
       </Box>
     </Box>
   );
